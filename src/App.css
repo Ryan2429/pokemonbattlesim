@@ -1,0 +1,142 @@
+/*All CSS For Options Box In Bottom Right Corner*/
+.options {
+    font-size: 4rem;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 3px solid black;
+    box-shadow: 0 2px 5px black;
+    border-radius: 2%;
+    width: 30%;
+    height: 30%;
+    cursor: pointer;
+}
+.listItem1 {
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-right: 5%;
+}
+.listItem2 {
+    position: absolute;
+    top: 0;
+    right:0;
+    margin-right: 5%;
+    margin-top: 5%;
+}
+
+.listItem3 {
+    position: absolute;
+    bottom: 0;
+    right:0;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    padding-left: 5%;
+}
+
+.listItem4 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
+
+.back {
+    font-size: 2rem;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 2%;
+    position: absolute;
+    right: -0.5%;
+    bottom: 100%;
+}
+
+/* All CSS For Player Character & Enemy Styling */
+
+.playerCharacter {
+    position: relative;
+    margin-top: 25%;
+    margin-left: 5%;
+    max-height: 20%;
+    max-width: 20%;
+    height: 30%;
+    width: 20%;
+    transform: scaleX(-1);
+}
+
+.enemyCharacter {
+    position: absolute;
+    top: 0;
+    padding-top: 10%;
+    right: 0;
+    padding-right: 10%;
+    max-height: 20%;
+    max-width: 18%;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #E8E8E8;
+    overflow: hidden;
+}
+
+/* Styling for Health Bars */
+
+progress[value] {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+     appearance: none;
+        width: 8em;
+        height: .5em;
+  }
+
+progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    position: relative;
+    margin-top: -6%;
+    margin-left: 27%;
+    border-radius: 2px;
+    border: 2px solid black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    z-index: 0;
+  }
+
+  .playerContainer {
+        border: 2px solid #203800;
+        border-radius: 1%;
+        position: absolute;
+        margin-top: -16%;
+        margin-left: 69.2%;
+        background-color: #F8F8D8;
+        box-shadow: 0 2px 5px black;
+        font-size: 3em;
+        height: 2em;
+        width: 10.4em;
+  }
+
+  .playerName {
+      padding-left: 2%;
+      font-weight: bold;
+  }
+
+  .enemyContainer {
+    border: 2px solid #203800;
+    border-radius: 1%;
+    position: absolute;
+    top: 0;
+    margin-top: 2%;
+    left: 0;
+    margin-left: 4%;
+    background-color: #F8F8D8;
+    box-shadow: 0 2px 5px black;
+    font-size: 3em;
+    height: 2em;
+    width: 10.4em;
+  }
+
+  .enemyName {
+        padding-left: 2%;
+        font-weight: bold;
+  }
