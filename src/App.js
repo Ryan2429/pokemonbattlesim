@@ -18,16 +18,9 @@ export default function App() {
     const [enemyHealth, setNewEnemyHealth] = useState(100)
     const [count, setCount] = useState(0)
     const [menu, setMenu] = useState('characterSelect')
-    const playerSelect = []
+    const [playerSelect, setPlayerSelect] = useState([])
     const [playerSprite, setPlayerSprite] = useState(null)
-
-    const characterSelection = (e) => {
-        setPlayerSprite(e.target.value);
-        console.log('working');
-        console.log({ characterSelection });
-    }
-
-
+   
     /*THESE FUNCTIONS HANDLE ALL STATE CHANGES RELATIVE TO MENU SELECTIONS BETWEEN PLAYER AND ENEMY CHARACTERS*/
     /* Handles damage calculation when attacking enemy and switches state to enemy turn */
     const enemyAttacked = () => {
@@ -38,12 +31,10 @@ export default function App() {
     /*Handles changing of menu states restricting or allowing player selections */
     const fight = () => {
         setMenu('fight');
-        console.log(menu);
     }
     
     const goBack = () => {
         setMenu('default');
-        console.log(menu);
     }
 
   /*counter runs to time animations without getting stuck in recursion loop*/
@@ -52,7 +43,7 @@ export default function App() {
     if (count === 3) {
         setPlayerSprite(prevSprite => playerSelect[0])
         setEnemySprite(prevSprite => enemySelect[1])
-        setCount(prevCount => 0);
+        setCount(prevCount => 0); 
     } else if (count % 2 === 0) {
             setPlayerSprite(prevSprite => playerSelect[0])
             setEnemySprite(prevSprite => enemySelect[1])
@@ -61,15 +52,15 @@ export default function App() {
             setPlayerSprite(prevSprite => playerSelect[1])
             setEnemySprite(prevSprite => enemySelect[0])
             setCount(count+1);
-    } 
+            console.log(playerSelect);
+    }
 }  
-setTimeout(counter, 1000);   
-
+setTimeout(counter, 1000);
 
     if (menu === 'characterSelect') {
     return (
         <div>
-            <CharacterSelect playerSprite={playerSprite} characterSelection={characterSelection} menu={menu} count={count}/>
+            <CharacterSelect menu={menu} count={count} playerSelect={playerSelect} setPlayerSelect={setPlayerSelect} setPlayerSprite={setPlayerSprite} setMenu={setMenu}/>
         </div>
     )} else { 
         return (

@@ -61,6 +61,7 @@
     float: left;
     width: 20%;
     text-align: center;
+    
 }
 
 .tagLine {
@@ -81,6 +82,7 @@
 #one {
     width: 80%;
     height: 20em;
+    transform: scaleX(-1);
 }
 .one {
     border: 2px solid green;
@@ -90,7 +92,8 @@
 #four {
     width: 80%;
     height: 20em;
-    margin-right: 20%;
+    margin-right: -15%;
+    transform: scaleX(-1);
 }
 .four {
     border: 2px solid red;
@@ -100,12 +103,13 @@
  #seven {  
     width: 80%;
     height: 20em;
-    margin-right: 12%;
+    margin-right: -11%;
+    transform: scaleX(-1);
 }
 .seven {
     border: 2px solid blue;
     color: blue;
-    border-radius: 5%;
+    border-radius: 5%; 
 }
 
 
