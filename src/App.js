@@ -14,6 +14,7 @@ export default function App() {
     const playerDamage = (playerLevel * 2) * 1.10;
     const enemyLevel = 5;
     const enemyDamage = enemyLevel * 1.5;
+    const [playerName, setPlayerName] = useState([]);
     const [playerHealth, setNewPlayerHealth] = useState(100);
     const enemySelect = [Pikachu1, Pikachu2]
     const [enemySprite, setEnemySprite] = useState(enemySelect[0]) 
@@ -77,6 +78,8 @@ setTimeout(counter, 1000);
     return (
         <div>
             <CharacterSelect 
+                playerName={playerName}
+                setPlayerName={setPlayerName}
                 menu={menu} 
                 count={count} 
                 playerSelect={playerSelect} 
@@ -88,6 +91,7 @@ setTimeout(counter, 1000);
         return (
             <div>
             <PlayerChar 
+                playerName={playerName}
                 playerHealth={playerHealth} 
                 playerSprite={playerSprite}/>
             <Enemy 

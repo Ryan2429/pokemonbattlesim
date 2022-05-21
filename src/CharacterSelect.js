@@ -9,7 +9,7 @@ import Squirtle2 from './Assets/SquirtleAlt.png';
 
 
 
-const CharacterSelect  = ({ count, playerSelect, setPlayerSelect, setPlayerSprite, setMenu }) => {
+const CharacterSelect  = ({ count, playerSelect, setPlayerSprite, setMenu, playerName, setPlayerName }) => {
 
         const Bulbasaur = [Bulbasaur1, Bulbasaur2];
         const Charmander = [Charmander1, Charmander2];
@@ -35,6 +35,7 @@ const CharacterSelect  = ({ count, playerSelect, setPlayerSelect, setPlayerSprit
     const selectBulbasaur = () => {
         playerSelect.push(Bulbasaur[0], Bulbasaur[1])
         setPlayerSprite(prevSprite => playerSelect[0]);
+        playerName.push('Bulbasaur');
         setMenu('default');
         console.log(playerSelect);
     }
@@ -42,6 +43,7 @@ const CharacterSelect  = ({ count, playerSelect, setPlayerSelect, setPlayerSprit
     const selectCharmander = () => {
         playerSelect.push(Charmander[0], Charmander[1]);
         setPlayerSprite(prevSprite => playerSelect[0]);
+        playerName.push('Charmander');
         setMenu('default');
         console.log(playerSelect);
     }
@@ -49,6 +51,7 @@ const CharacterSelect  = ({ count, playerSelect, setPlayerSelect, setPlayerSprit
     const selectSquirtle = () => {
         playerSelect.push(Squirtle[0], Squirtle[1]);
         setPlayerSprite(prevSprite => playerSelect[0]);
+        playerName.push('Squirtle');
         setMenu('default');
         console.log(playerSelect);
     }
