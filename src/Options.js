@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Options = ({ enemyAttacked, menu, fight, goBack }) => {
+const Options = ({ playerAttack, menu, fight, goBack, enemyAttack }) => {
     
 /* Handles default menu state where Player is primary */
 
@@ -27,6 +27,7 @@ const Options = ({ enemyAttacked, menu, fight, goBack }) => {
      </div>
         )
     }
+    setTimeout(enemyAttack, 3500);
 
     /* Handles combat menu state */
 
@@ -34,7 +35,7 @@ const Options = ({ enemyAttacked, menu, fight, goBack }) => {
         return(
     <div className='options'>
         <div className='back' onClick={goBack}>Back</div>
-        <div className='listItem1' onClick={enemyAttacked}>MOVE1</div>
+        <div className='listItem1' onClick={playerAttack}>MOVE1</div>
         <div className='listItem2'>MOVE2</div>
         <div className='listItem3'>MOVE4</div>
         <div className='listItem4'>MOVE3</div>
