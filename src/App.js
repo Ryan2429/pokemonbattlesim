@@ -11,9 +11,9 @@ export default function App() {
 
     
     const playerLevel = 5;
-    const playerDamage = (playerLevel * 2) * 1.10;
+    const playerDamage = (playerLevel * 2) * 4;
     const enemyLevel = 5;
-    const enemyDamage = enemyLevel * 1.5;
+    const enemyDamage = enemyLevel * 3;
     const [playerName, setPlayerName] = useState([]);
     const [playerHealth, setNewPlayerHealth] = useState(100);
     const enemySelect = [Pikachu1, Pikachu2]
@@ -29,8 +29,22 @@ export default function App() {
     const playerAttack = () => {
         setNewEnemyHealth(prevHealth => prevHealth - playerDamage)
         setMenu('enemy');
-        console.log(menu);
+
+        const enemyAttack = () => {
+            setNewPlayerHealth(prevHealth => prevHealth - enemyDamage)
+        }
+        if (enemyHealth - playerDamage > 0) {
+            setTimeout(enemyAttack, 3000);
+            setMenu('default');
+        }
     }
+    
+    
+
+    
+  
+
+
     /*Handles changing of menu states restricting or allowing player selections */
     const fight = () => {
         setMenu('fight');
@@ -39,22 +53,7 @@ export default function App() {
     const goBack = () => {
         setMenu('default');
     }
-    const enemyAttack = () => {
-        let moves = ['Scratch', 'Tackle'];
-        let attackChosen = moves[Math.floor(Math.random()*moves.length)];
-        if (attackChosen === 'Scratch') {
-            setNewPlayerHealth(prevHealth => playerHealth - (enemyDamage * 1.5));
-            console.log('scratch');
-            
-        } else if (attackChosen === 'Tackle') {
-            setNewPlayerHealth(prevHealth => playerHealth - (enemyDamage * 1.25));
-            console.log('tackle');
-            
-        }
-        setMenu('default');
-        console.log(playerHealth);
-    }
-
+    
   /*counter runs to time animations without getting stuck in recursion loop*/
    
    const counter = () => { 
@@ -103,8 +102,7 @@ setTimeout(counter, 1000);
                 goBack={goBack} 
                 menu={menu} 
                 count={count} 
-                setCount={setCount} 
-                enemyAttack={enemyAttack}/>
+                setCount={setCount}/>
             </div>
     )
         }

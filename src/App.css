@@ -203,7 +203,7 @@ progress[value]::-webkit-progress-bar {
         font-weight: bold;
   }
 /* Media query for laptop screens */
-@media (min-width: 992px) {
+@media (max-width: 1536px) {
     .starter {
   margin-top: 2%;
     }
