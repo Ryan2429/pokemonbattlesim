@@ -15,7 +15,7 @@
 .listItem1 {
     margin-left: 5%;
     margin-top: 5%;
-    margin-right: 5%;
+    margin-right: 60%;
 }
 .listItem2 {
     position: absolute;
@@ -202,5 +202,33 @@ progress[value]::-webkit-progress-bar {
         padding-left: 2%;
         font-weight: bold;
   }
+/* Media query for laptop screens */
+@media (min-width: 992px) {
+    .starter {
+  position: relative;
+  margin-top: 2%;
+  margin-left: 9%;
+  float: left;
+  width: 20%;
+  text-align: center;
+    }
+    .playerContainer {
+        border: 2px solid #203800;
+        border-radius: 1%;
+        position: absolute;
+        margin-top: -18.4%;
+        margin-left: 61.5%;
+        background-color: #F8F8D8;
+        box-shadow: 0 2px 5px black;
+        font-size: 3em;
+        height: 2em;
+        width: 10.4em;
+  }
+
+  .playerName {
+      padding-left: 2%;
+      font-weight: bold;
+  }
+}
 
   

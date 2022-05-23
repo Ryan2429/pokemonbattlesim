@@ -109,4 +109,3 @@ setTimeout(counter, 1000);
     )
         }
     }
-

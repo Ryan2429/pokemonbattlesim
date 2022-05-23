@@ -17,6 +17,7 @@ const Options = ({ playerAttack, menu, fight, goBack, enemyAttack }) => {
     }
 
     if (menu === 'enemy') {
+        setTimeout(enemyAttack, 2000);
         return(
     <div className='options'>
         <div className='back'>Back</div>
@@ -27,7 +28,6 @@ const Options = ({ playerAttack, menu, fight, goBack, enemyAttack }) => {
      </div>
         )
     }
-    setTimeout(enemyAttack, 3500);
 
     /* Handles combat menu state */
 
