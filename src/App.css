@@ -211,6 +211,12 @@ progress[value]::-webkit-progress-bar {
         margin-top: -18.4%;
         margin-left: 61.5%;
   }
+.options {
+    font-size: 3.5rem;
+}
+.back {
+    bottom: 100.5%;
+}
 }
 
   
