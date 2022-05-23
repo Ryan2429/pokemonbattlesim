@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './App.css';
 
-const PlayerHealthBar = ({ max, playerHealth }) => {
+const PlayerHealthBar = ({ playerHealth, playerLevel }) => {
 
     return (
-        <progress value={playerHealth} max={max}/>
+        <progress value={playerHealth} max={playerLevel * 20}/>
     )
     
 }
@@ -15,8 +15,6 @@ PlayerHealthBar.propTypes = {
     max: PropTypes.number
 }
 
-PlayerHealthBar.defaultProps = {
-    max: 100,
-}
+
 
 export default PlayerHealthBar;

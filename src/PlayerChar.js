@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import PlayerHealthBar from './PlayerHealthBar.js';
 
-const PlayerChar = ({ playerHealth, playerSprite, playerName }) => {
+const PlayerChar = ({ playerHealth, playerSprite, playerName, playerLevel }) => {
     
     return (
 <div>
@@ -10,7 +10,7 @@ const PlayerChar = ({ playerHealth, playerSprite, playerName }) => {
         <img className='playerCharacter' src={ playerSprite } alt='PlayerCharacter' />
         <div className='playerContainer'>
         <span className='playerName'>{playerName}</span>
-        <PlayerHealthBar className='playerHealth' playerHealth={playerHealth}/>
+        <PlayerHealthBar className='playerHealth' playerHealth={playerHealth} playerLevel={playerLevel}/>
         </div>
     </div>
 </div>

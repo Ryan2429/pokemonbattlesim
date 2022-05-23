@@ -2,7 +2,7 @@ import React from 'react';
 import EnemyHealthBar from './EnemyHealthBar.js';
 import './App.css';
 
-const Enemy = ({ enemyHealth, enemySprite }) => {
+const Enemy = ({ enemyHealth, enemySprite, enemyLevel }) => {
     
         return (
     <div>
@@ -10,7 +10,7 @@ const Enemy = ({ enemyHealth, enemySprite }) => {
             <img className='enemyCharacter' src={ enemySprite } alt='EnemyCharacter'/>
             <div className='enemyContainer'>
              <span className='enemyName'>Pikachu</span>
-            <EnemyHealthBar className='enemyHealth' enemyHealth={enemyHealth}/>
+            <EnemyHealthBar className='enemyHealth' enemyHealth={enemyHealth} enemyLevel={enemyLevel}/>
         </div>
         </div>
     </div>

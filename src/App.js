@@ -13,12 +13,12 @@ export default function App() {
     const playerLevel = 5;
     const playerDamage = (playerLevel * 2) * 4;
     const enemyLevel = 5;
-    const enemyDamage = enemyLevel * 3;
+    const enemyDamage = enemyLevel * 6;
     const [playerName, setPlayerName] = useState([]);
-    const [playerHealth, setNewPlayerHealth] = useState(100);
+    const [playerHealth, setNewPlayerHealth] = useState(playerLevel * 20);
     const enemySelect = [Pikachu1, Pikachu2]
     const [enemySprite, setEnemySprite] = useState(enemySelect[0]) 
-    const [enemyHealth, setNewEnemyHealth] = useState(100)
+    const [enemyHealth, setNewEnemyHealth] = useState(enemyLevel * 20)
     const [count, setCount] = useState(0)
     const [menu, setMenu] = useState('characterSelect')
     const [playerSelect, setPlayerSelect] = useState([])
@@ -27,15 +27,20 @@ export default function App() {
     /*THESE FUNCTIONS HANDLE ALL STATE CHANGES RELATIVE TO MENU SELECTIONS BETWEEN PLAYER AND ENEMY CHARACTERS*/
     /* Handles damage calculation when attacking enemy and switches state to enemy turn */
     const playerAttack = () => {
+        if (enemyHealth > 0) {
         setNewEnemyHealth(prevHealth => prevHealth - playerDamage)
-        setMenu('enemy');
-
+        } 
         const enemyAttack = () => {
             setNewPlayerHealth(prevHealth => prevHealth - enemyDamage)
+            setMenu('default');
         }
         if (enemyHealth - playerDamage > 0) {
+            setMenu('enemy');
             setTimeout(enemyAttack, 3000);
-            setMenu('default');
+            console.log(menu)
+        } else if (enemyHealth - playerDamage < 0) {
+            /* placeholder menu so that you can't spam between states while waiting to impliment pokemon respawns, THIS WILL CHANGE */
+            setMenu('enemy');
         }
     }
     
@@ -92,9 +97,11 @@ setTimeout(counter, 1000);
             <PlayerChar 
                 playerName={playerName}
                 playerHealth={playerHealth} 
+                playerLevel={playerLevel}
                 playerSprite={playerSprite}/>
             <Enemy 
                 enemyHealth={enemyHealth} 
+                enemyLevel={enemyLevel}
                 enemySprite={enemySprite}/>
             <Options    
                 playerAttack={playerAttack} 
