@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/pokemonbattlesim/static/css/main.983137d1.css",
-    "main.js": "/pokemonbattlesim/static/js/main.dd799860.js",
+    "main.js": "/pokemonbattlesim/static/js/main.fb061438.js",
     "index.html": "/pokemonbattlesim/index.html",
     "main.983137d1.css.map": "/pokemonbattlesim/static/css/main.983137d1.css.map",
-    "main.dd799860.js.map": "/pokemonbattlesim/static/js/main.dd799860.js.map"
+    "main.fb061438.js.map": "/pokemonbattlesim/static/js/main.fb061438.js.map"
   },
   "entrypoints": [
     "static/css/main.983137d1.css",
-    "static/js/main.dd799860.js"
+    "static/js/main.fb061438.js"
   ]
 }
