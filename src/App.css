@@ -220,7 +220,7 @@ progress[value]::-webkit-progress-bar {
 }
 
 /* MEDIA QUERY FOR MOBILE */
-@media only screen and (max-width: 415px) and (orientation: portrait) {
+@media only screen and (max-width: 600px) and (orientation: portrait) {
     html, body {
         overflow-x: hidden;
         overflow-y: hidden;
