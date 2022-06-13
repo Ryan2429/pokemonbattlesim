@@ -10,6 +10,8 @@ const Enemy = ({ enemyHealth, enemySprite, enemyLevel }) => {
             <img className='enemyCharacter' src={ enemySprite } alt='EnemyCharacter'/>
             <div className='enemyContainer'>
              <span className='enemyName'>Pikachu</span>
+             <span className='enemyLevel'>Level: {enemyLevel}</span>
+             <span className='health'>{enemyHealth}</span>
             <EnemyHealthBar className='enemyHealth' enemyHealth={enemyHealth} enemyLevel={enemyLevel}/>
         </div>
         </div>

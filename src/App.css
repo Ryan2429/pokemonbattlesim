@@ -169,19 +169,34 @@ progress[value]::-webkit-progress-bar {
         border: 2px solid #203800;
         border-radius: 1%;
         position: absolute;
-        margin-top: -16%;
+        margin-top: -18%;
         margin-left: 69.2%;
         background-color: #F8F8D8;
         box-shadow: 0 2px 5px black;
         font-size: 3em;
-        height: 2em;
+        height: 2.8em;
         width: 10.4em;
+  }
+
+  .health {
+      font-size: .8em;
+      font-weight: bold;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin-right: 3%;
   }
 
   .playerName {
       padding-left: 2%;
       font-weight: bold;
   }
+  .playerLevel {
+    font-size: .8em;
+    position: absolute;
+    right: 0;
+    margin-right: 3%;
+}
 
   .enemyContainer {
     border: 2px solid #203800;
@@ -194,7 +209,7 @@ progress[value]::-webkit-progress-bar {
     background-color: #F8F8D8;
     box-shadow: 0 2px 5px black;
     font-size: 3em;
-    height: 2em;
+    height: 2.8em;
     width: 10.4em;
   }
 
@@ -202,6 +217,13 @@ progress[value]::-webkit-progress-bar {
         padding-left: 2%;
         font-weight: bold;
   }
+  .enemyLevel {
+    font-size: .8em;
+    position: absolute;
+    right: 0;
+    margin-right: 3%;
+}
+
 /* Media query for laptop screens */
 @media (max-width: 1536px) {
     .starter {
@@ -382,15 +404,15 @@ progress[value] {
     /* Reset the default appearance */
     -webkit-appearance: none;
      appearance: none;
-        width: 5em;
+        width: 8.5em;
         height: .5em;
   }
 
 progress[value]::-webkit-progress-bar {
     background-color: #eee;
     position: relative;
-    margin-top: -10%;
-    margin-left: 55%;
+    margin-top: -8%;
+    margin-left: 2%;
     border-radius: 2px;
     border: 2px solid black;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
@@ -402,17 +424,18 @@ progress[value]::-webkit-progress-bar {
         border-radius: 1%;
         position: absolute;
         margin-top: -78%;
-        margin-left: 24%;
+        margin-left: 15%;
         background-color: #F8F8D8;
         box-shadow: 0 2px 5px black;
         font-size: 2em;
-        height: 2em;
-        width: 8em;
+        height: 2.5em;
+        width: 9em;
   }
 
   .playerName {
       padding-left: 2%;
       font-weight: bold;
+      font-size: .8em;
   }
 
   .enemyContainer {
@@ -426,13 +449,14 @@ progress[value]::-webkit-progress-bar {
     background-color: #F8F8D8;
     box-shadow: 0 2px 5px black;
     font-size: 2em;
-    height: 2em;
-    width: 8em;
+    height: 2.5em;
+    width: 9em;
   }
 
   .enemyName {
         padding-left: 2%;
         font-weight: bold;
+        font-size: .8em;
   }
 
 }
