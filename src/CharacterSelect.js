@@ -58,7 +58,7 @@ const CharacterSelect  = ({ count, playerSelect, setPlayerSprite, setMenu, playe
 
         return (
             <div className='nameContainer'>
-                <p className='tagLine'>Choose your Starter Pokemon!</p>
+                <p className='tagLine'>Choose your Starter Pokemon~</p>
                 <div className="starter">
                     <div className='one'>
                     <img id='one' src={ BulbasaurSprite } alt="Bulbasaur" onClick={selectBulbasaur}/>
