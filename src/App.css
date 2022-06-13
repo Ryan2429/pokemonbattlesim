@@ -219,4 +219,213 @@ progress[value]::-webkit-progress-bar {
 }
 }
 
+/* MEDIA QUERY FOR MOBILE */
+@media (max-width: 600px) {
+
+    /* CHARACTER SELECT SCREEN */
+    .starter {
+        position: relative;
+        margin-top: 0%;
+        margin-left: 1%;
+        float: left;
+        width: 32%;
+        text-align: center;
+        
+    }
+    
+    .tagLine {
+        text-align: center;
+        font-weight: bold;
+        font-size: 3em;
+        color: black;
+    }
+    
+    .starterName {
+        position: relative;
+        margin-left: 5%;
+        margin-right: 5%;
+        font-weight: bold;
+        font-size: .9em;
+    }
+    
+    #one {
+        width: 150%;
+        height: 20em;
+        margin-left: -16%;
+        transform: scaleX(-1);
+    }
+    .one {
+        border: 2px solid green;
+        color: green;
+        border-radius: 5%;
+    }
+    #four {
+        width: 150%;
+        height: 20em;
+        margin-left: -14%;
+        transform: scaleX(-1);
+    }
+    .four {
+        border: 2px solid red;
+        color: red;
+        border-radius: 5%;
+    }
+     #seven {  
+        width: 150%;
+        height: 20em;
+        margin-left: -16%;
+        transform: scaleX(-1);
+    }
+    .seven {
+        border: 2px solid blue;
+        color: blue;
+        border-radius: 5%; 
+    }
+    /* CHARACTER SELECT SCREEN */
+
+    /* COMBAT SCREEN */
+    /*All CSS For Options Box In Bottom Right Corner*/
+.options {
+    font-size: 1rem;
+    background-color: white;
+    position: absolute;
+    bottom: -6%;
+    right: -6%;
+    border: 3px solid black;
+    box-shadow: 0 2px 5px black;
+    border-radius: 2%;
+    width: 60%;
+    height: 15%;
+    cursor: pointer;
+}
+.listItem1 {
+    margin-left: 10%;
+    margin-top: 10%;
+    margin-right: 60%;
+}
+.listItem2 {
+    position: absolute;
+    top: 0;
+    right:0;
+    margin-right: 10%;
+    margin-top: 10%;
+}
+
+.listItem3 {
+    position: absolute;
+    bottom: 0;
+    right:0;
+    margin-right: 10%;
+    margin-bottom: 10%;
+}
+
+.listItem4 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: 10%;
+    margin-bottom: 10%;
+}
+
+.back {
+    font-size: 1.5rem;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 2%;
+    position: absolute;
+    right: -2%;
+    bottom: 100%;
+}
+/* END CSS FOR OPTIONS MENU */
+
+/*CHARACTER STYLING */
+.playerCharacter {
+    position: relative;
+    margin-top: 100%;
+    margin-left: -5%;
+    max-height: 30%;
+    max-width: 50%;
+    height: 30%;
+    width: 50%;
+    transform: scaleX(-1);
+}
+
+.enemyCharacter {
+    position: absolute;
+    top: 0;
+    margin-top: 20%;
+    right: 0;
+    margin-right: -12%;
+    max-height: 18%;
+    max-width: 38%;
+    height: auto;
+    width: 40%;
+}
+
+body {
+    background-color: #E8E8E8;
+    overflow: hidden;
+}
+
+/* Styling for Health Bars */
+
+progress[value] {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+     appearance: none;
+        width: 5em;
+        height: .5em;
+  }
+
+progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    position: relative;
+    margin-top: -10%;
+    margin-left: 55%;
+    border-radius: 2px;
+    border: 2px solid black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    z-index: 0;
+  }
+
+  .playerContainer {
+        border: 2px solid #203800;
+        border-radius: 1%;
+        position: absolute;
+        margin-top: 5%;
+        margin-left: 22%;
+        background-color: #F8F8D8;
+        box-shadow: 0 2px 5px black;
+        font-size: 2em;
+        height: 2em;
+        width: 8em;
+  }
+
+  .playerName {
+      padding-left: 2%;
+      font-weight: bold;
+  }
+
+  .enemyContainer {
+    border: 2px solid #203800;
+    border-radius: 1%;
+    position: absolute;
+    top: 0;
+    margin-top: 2%;
+    left: 0;
+    margin-left: 4%;
+    background-color: #F8F8D8;
+    box-shadow: 0 2px 5px black;
+    font-size: 2em;
+    height: 2em;
+    width: 8em;
+  }
+
+  .enemyName {
+        padding-left: 2%;
+        font-weight: bold;
+  }
+
+}
+
   
