@@ -350,7 +350,7 @@ progress[value]::-webkit-progress-bar {
 /*CHARACTER STYLING */
 .playerCharacter {
     position: relative;
-    margin-top: 50%;
+    margin-top: 45%;
     margin-left: -5%;
     margin-bottom: 80%;
     max-height: 30%;
