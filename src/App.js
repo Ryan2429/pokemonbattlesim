@@ -7,6 +7,10 @@ import Caterpie01 from './Assets/Caterpie01.png';
 import Caterpie02 from './Assets/Caterpie02.png';
 import Metapod01 from './Assets/Metapod01.png';
 import Metapod02 from './Assets/Metapod02.png';
+import Pidgey01 from './Assets/Pidgey01.png';
+import Pidgey02 from './Assets/Pidgey02.png';
+import Rattata01 from './Assets/Rattata01.png';
+import Rattata02 from './Assets/Rattata02.png';
 import './App.css';
 
 export default function App() {
@@ -21,10 +25,12 @@ export default function App() {
         this.image2 = image2;
     }
 
-    const Caterpie = new Pokemon('Caterpie', 'Bug', 3, 60, 0.5, Caterpie01, Caterpie02);
-    const Metapod = new Pokemon('Metapod', 'Bug', 4, 80, 0.8, Metapod01, Metapod02);
+    const Caterpie = new Pokemon('Caterpie', 'Bug', 3, 60, 0.4, Caterpie01, Caterpie02);
+    const Metapod = new Pokemon('Metapod', 'Bug', 4, 80, 0.3, Metapod01, Metapod02);
+    const Pidgey = new Pokemon('Pidgey', 'Flying', 5, 100, 0.5, Pidgey01, Pidgey02);
+    const Rattata = new Pokemon('Rattata', 'Normal', 5, 100, 0.5, Rattata01, Rattata02);
 
-    const VeridianForestPokemon = [ Caterpie, Metapod ]
+    const VeridianForestPokemon = [ Caterpie, Metapod, Pidgey, Rattata ]
     const [selectedLevel, setSelectedLevel] = useState(VeridianForestPokemon);
     const [enemySelect, setEnemySelect] = useState(selectedLevel[0]);
     const [enemyLevel, setEnemyLevel] = useState(enemySelect.level);
@@ -50,11 +56,7 @@ export default function App() {
     /*THESE FUNCTIONS HANDLE ALL STATE CHANGES RELATIVE TO MENU SELECTIONS BETWEEN PLAYER AND ENEMY CHARACTERS*/
     /* Handles damage calculation when attacking enemy and switches state to enemy turn */
     const newEnemy = () => {
-        setEnemySelect(prevEnemy => selectedLevel[Math.floor(Math.random()*selectedLevel.length)]);
-        setEnemyLevel(prevLevel => enemySelect.level);
-        setNewEnemyHealth(prevHealth => enemySelect.level * 20);
         setMenu('default');
-        
     }
        
 
@@ -72,7 +74,8 @@ export default function App() {
         } else if (enemyHealth - playerDamage <= 0) {
             setNewEnemyHealth(prevhealth => 0);
             setMenu('enemy');
-            setTimeout(newEnemy, 2000);
+            setEnemySelect(prevEnemy => selectedLevel[Math.floor(Math.random()*selectedLevel.length)]);
+            setTimeout(newEnemy, 1000);
         }
     }
     
@@ -91,10 +94,13 @@ export default function App() {
         setMenu('default');
     }
     
-  /*counter runs to time animations without getting stuck in recursion loop*/
+  /*counter runs to time animations without getting stuck in recursion loop, also now handles updating of monster level and HP on new spawn*/
    
    const counter = () => { 
-    if (count === 3) {
+   if (count >= 0 && enemyHealth === 0) {
+    setEnemyLevel(prevLevel => enemySelect.level);
+    setNewEnemyHealth(prevHealth => enemySelect.health);
+    } else if (count === 3) {
         setPlayerSprite(prevSprite => playerSelect[0])
         setEnemySprite(prevSprite => enemySelect.image1)
         setCount(prevCount => 0); 
