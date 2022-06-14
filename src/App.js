@@ -25,9 +25,9 @@ export default function App() {
         this.image2 = image2;
     }
 
-    const Caterpie = new Pokemon('Caterpie', 'Bug', 3, 60, 0.4, Caterpie01, Caterpie02);
-    const Metapod = new Pokemon('Metapod', 'Bug', 4, 80, 0.3, Metapod01, Metapod02);
-    const Pidgey = new Pokemon('Pidgey', 'Flying', 5, 100, 0.5, Pidgey01, Pidgey02);
+    const Caterpie = new Pokemon('Caterpie', 'Bug', 3, 60, 0.3, Caterpie01, Caterpie02);
+    const Metapod = new Pokemon('Metapod', 'Bug', 4, 80, 0.25, Metapod01, Metapod02);
+    const Pidgey = new Pokemon('Pidgey', 'Flying', 5, 100, 0.4, Pidgey01, Pidgey02);
     const Rattata = new Pokemon('Rattata', 'Normal', 5, 100, 0.5, Rattata01, Rattata02);
 
     const VeridianForestPokemon = [ Caterpie, Metapod, Pidgey, Rattata ]
