@@ -112,6 +112,18 @@
     border-radius: 5%; 
 }
 
+/*Styling for game background*/
+.gameBackground {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    margin-left: -1%;
+    margin-right: -1%;
+    margin-top: -1%;
+    padding-bottom: 6%;
+    
+}
+
 
 
 /* All CSS For Player Character & Enemy Styling */
@@ -226,12 +238,9 @@ progress[value]::-webkit-progress-bar {
 
 /* Media query for laptop screens */
 @media (max-width: 1536px) {
-    .starter {
-  margin-top: 2%;
-    }
 .playerContainer {
-        margin-top: -18.4%;
-        margin-left: 61.5%;
+    margin-top: -21%;
+    margin-left: 61.5%;
   }
 .options {
     font-size: 3.5rem;
