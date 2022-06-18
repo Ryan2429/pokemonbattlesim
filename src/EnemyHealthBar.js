@@ -5,7 +5,7 @@ import './App.css';
 const EnemyHealthBar = ({ enemyHealth, enemyLevel }) => {
   
     return (
-        <progress value={enemyHealth} max={enemyLevel * 20}/>
+        <progress className='healthbar' value={enemyHealth} max={enemyLevel * 20}/>
     )
     
 }

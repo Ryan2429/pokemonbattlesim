@@ -59,9 +59,9 @@ export default function App() {
     const [enemySelect, setEnemySelect] = useState(selectedLevel[0]);
     const [enemyLevel, setEnemyLevel] = useState(enemySelect.level);
     const [playerLevel, setPlayerLevel] = useState(5);
-    const playerDamage = (playerLevel * 2) * 2;
+    const playerDamage = (playerLevel * 2) * 50;
     const [playerXP, setPlayerXP] = useState(0);
-    const XPToLevelUp = playerLevel * 10;
+    const XPToLevelUp = playerLevel * 100;
     const enemyDamage = enemyLevel * 6 * enemySelect.damageModifier;
     const [playerName, setPlayerName] = useState([]);
     const playerMaxHealth = playerLevel * 20;
@@ -83,13 +83,13 @@ export default function App() {
 
     const rewardXP = () => {
         setPlayerXP(prevXP => playerXP + enemySelect.xpReward);
-    }
+}
 
     const levelUp = () => {
-        if (playerXP >= XPToLevelUp) {
+        if (playerXP + enemySelect.xpReward >= XPToLevelUp) {
+            setPlayerXP(prevXP => (playerXP + enemySelect.xpReward) - XPToLevelUp);
             setPlayerLevel(prevLevel => playerLevel + 1);
             setNewPlayerHealth(prevHealth => playerMaxHealth + 20);
-            setPlayerXP(prevXP => 0);
         }
     }
 
@@ -176,7 +176,9 @@ setTimeout(counter, 1000);
                 playerName={playerName}
                 playerHealth={playerHealth} 
                 playerLevel={playerLevel}
-                playerSprite={playerSprite}/>
+                playerSprite={playerSprite}
+                playerXP={playerXP}
+                XPToLevelUp={XPToLevelUp}/>
             <Enemy 
                 enemyHealth={enemyHealth} 
                 enemyMaxHealth={enemyMaxHealth}
