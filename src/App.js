@@ -59,7 +59,7 @@ export default function App() {
     const [enemySelect, setEnemySelect] = useState(selectedLevel[0]);
     const [enemyLevel, setEnemyLevel] = useState(enemySelect.level);
     const [playerLevel, setPlayerLevel] = useState(5);
-    const playerDamage = (playerLevel * 2) * 50;
+    const playerDamage = (playerLevel * 2) * 2;
     const [playerXP, setPlayerXP] = useState(0);
     const XPToLevelUp = playerLevel * 100;
     const enemyDamage = enemyLevel * 6 * enemySelect.damageModifier;
