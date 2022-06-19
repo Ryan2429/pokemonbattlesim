@@ -27,7 +27,7 @@ export default function App() {
     const [enemyLevel, setEnemyLevel] = useState(enemySelect.level);
     const [playerLevel, setPlayerLevel] = useState(5);
     const [evolveLevel, setEvolveLevel] = useState(1);
-    const playerDamage = (playerLevel * 2.5 * evolveLevel) * 2;
+    const playerDamage = (playerLevel * 2.15 * evolveLevel) * 2;
     const [playerXP, setPlayerXP] = useState(0);
     const XPToLevelUp = playerLevel * 80;
     const enemyDamage = enemyLevel * 6 * enemySelect.damageModifier;
@@ -58,6 +58,7 @@ export default function App() {
             setPlayerXP(prevXP => (playerXP + enemySelect.xpReward) - XPToLevelUp);
             setPlayerLevel(prevLevel => playerLevel + 1);
             setNewPlayerHealth(prevHealth => playerMaxHealth + 20);
+            setEvolveLevel(prevEvolveLevel => evolveLevel + 0.01);
             evolve();
         }
     }
@@ -120,7 +121,7 @@ export default function App() {
             setEnemySelect(prevEnemy => selectedLevel[Math.floor(Math.random()*selectedLevel.length)]);
             rewardXP();
             levelUp();
-            setTimeout(newEnemy, 1000);
+            setTimeout(newEnemy, 2000);
         }
         changeZone();
     }
