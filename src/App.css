@@ -416,7 +416,7 @@ body {
 .playerCharacter {
     position: relative;
     margin-top: 45%;
-    margin-left: -5%;
+    margin-left: 0%;
     margin-bottom: 80%;
     max-height: 30%;
     max-width: 50%;
