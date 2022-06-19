@@ -70,12 +70,7 @@ const changeZone = () => {
         }
     }
 
-    const setNewEnemy = () => {
-        setEnemyLevel(prevLevel => enemySelect.level);
-        setEnemySprite(prevSprite => enemySelect.image1);
-        setNewEnemyHealth(prevHealth => enemySelect.health);
-    }
-/* Function evolves pokemon at appropriate level, changes sprites & name, and renders a 10% damage boost per level */
+/* Function evolves pokemon at appropriate level, changes sprites & name, and renders a 1% damage boost per level */
     const evolve = () => {
         if (playerLevel === 15 && playerName == 'Charmander') {
            playerSelect[0] = Charmeleon01;
@@ -124,12 +119,11 @@ const changeZone = () => {
         if (enemyHealth - playerDamage > 0) {
             setMenu('enemy');
             setTimeout(enemyAttack, 2500);
-        } else if ((enemyHealth - playerDamage) <= 0) {
+        } else if (enemyHealth - playerDamage <= 0) {
             setEnemySelect(prevEnemy => selectedLevel[Math.floor(Math.random()*selectedLevel.length)]);
             setNewEnemyHealth(prevhealth => 0);
             rewardXP();
             levelUp();
-            setNewEnemy();
             setMenu('enemy');
             setTimeout(() => setMenu('default'), 2000);
         }
@@ -148,7 +142,11 @@ const changeZone = () => {
     as well as changing the combat zone*/
    
    const counter = () => { 
-   if (count === 3) {
+    if (count >= 0 && enemyHealth === 0) {
+        setEnemyLevel(prevLevel => enemySelect.level);
+        setNewEnemyHealth(prevHealth => enemySelect.health);
+    }
+    if (count === 3) {
         setPlayerSprite(prevSprite => playerSelect[0])
         setEnemySprite(prevSprite => enemySelect.image1)
         setCount(prevCount => 0); 
