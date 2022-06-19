@@ -37,7 +37,7 @@ import Mankey02 from './Assets/Mankey02.png';
 import Butterfree01 from './Assets/Butterfree01.png';
 import Butterfree02 from './Assets/Butterfree02.png';
 import Beedrill01 from './Assets/Beedrill01.png';
-import Beedrill02 from './Assets/Beedrill01.png';
+import Beedrill02 from './Assets/Beedrill02.png';
 import Magikarp01 from './Assets/Magikarp01.png';
 import Magikarp02 from './Assets/Magikarp02.png';
 import Abra01 from './Assets/Abra01.png';
