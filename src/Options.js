@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Options = ({ playerAttack, menu, fight, goBack, enemyAttack }) => {
+const Options = ({ playerAttack, menu, fight, goBack }) => {
     
 /* Handles default menu state where Player is primary */
 
@@ -17,7 +17,6 @@ const Options = ({ playerAttack, menu, fight, goBack, enemyAttack }) => {
     }
 
     if (menu === 'enemy') {
-       /* setTimeout(enemyAttack, 2000); */
         return(
     <div className='options'>
         <div className='back'>Back</div>
@@ -35,10 +34,10 @@ const Options = ({ playerAttack, menu, fight, goBack, enemyAttack }) => {
         return(
     <div className='options'>
         <div className='back' onClick={goBack}>Back</div>
-        <div className='listItem1' onClick={playerAttack}>MOVE1</div>
-        <div className='listItem2'>MOVE2</div>
-        <div className='listItem3'>MOVE4</div>
-        <div className='listItem4'>MOVE3</div>
+        <div className='listItem1' onClick={playerAttack}>Scratch</div>
+        <div className='listItem2'>----</div>
+        <div className='listItem3'>----</div>
+        <div className='listItem4'>----</div>
      </div>
         )
     }
@@ -46,11 +45,4 @@ const Options = ({ playerAttack, menu, fight, goBack, enemyAttack }) => {
     
     }
         
-    
-
-
-
-
-
-
 export default Options;

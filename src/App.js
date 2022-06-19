@@ -43,11 +43,15 @@ export default function App() {
     const [playerSprite, setPlayerSprite] = useState(null)
 
 /* Function controls spawns based upon game progression */
-    const changeZone = () => {
-        if (playerLevel >= 8 && playerLevel <= 13) {
-            setSelectedLevel(prevLevel => PokemonList[1]);
-        }
+const changeZone = () => {
+    let levelingUp = (playerXP + enemySelect.xpReward) >= XPToLevelUp;
+    if (playerLevel === 7 && levelingUp) {
+        setSelectedLevel(prevLevel => PokemonList[1]);
     }
+    if (playerLevel === 10 && levelingUp) {
+        setSelectedLevel(prevLevel => PokemonList[2]);
+    }
+}
 /* Rewards xp after enemy defeated */
     const rewardXP = () => {
         setPlayerXP(prevXP => playerXP + enemySelect.xpReward);
@@ -79,7 +83,7 @@ export default function App() {
             playerSelect[1] = Ivysaur02;
             setPlayerName('Ivysaur');
             setEvolveLevel(prevEvolveLevel => evolveLevel + 0.1);
-        } if (playerLevel === 35 && playerName == 'Ivysaur') {
+        } if (playerLevel === 31 && playerName == 'Ivysaur') {
              playerSelect[0] = Venusaur01;
              playerSelect[1] = Venusaur02;
              setPlayerName('Venusaur');
@@ -99,14 +103,12 @@ export default function App() {
 
     /*THESE FUNCTIONS HANDLE ALL STATE CHANGES RELATIVE TO MENU SELECTIONS BETWEEN PLAYER AND ENEMY CHARACTERS*/
     /* Handles damage calculation when attacking enemy and switches state to enemy turn */
-    const newEnemy = () => {
-        setMenu('default');
-    }
        
     const playerAttack = () => {
         if (enemyHealth > 0) {
-            console.log(playerDamage)
         setNewEnemyHealth(prevHealth => Math.floor(prevHealth - playerDamage))
+        console.log(playerDamage);
+        console.log(evolveLevel);
         } 
         const enemyAttack = () => {
             setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage))
@@ -117,13 +119,12 @@ export default function App() {
             setTimeout(enemyAttack, 2500);
         } else if (enemyHealth - playerDamage <= 0) {
             setNewEnemyHealth(prevhealth => 0);
-            setMenu('enemy');
-            setEnemySelect(prevEnemy => selectedLevel[Math.floor(Math.random()*selectedLevel.length)]);
             rewardXP();
             levelUp();
-            setTimeout(newEnemy, 2000);
+            setMenu('enemy');
+            setEnemySelect(prevEnemy => selectedLevel[Math.floor(Math.random()*selectedLevel.length)]);
+            setTimeout(() => setMenu('default'), 2000);
         }
-        changeZone();
     }
     
     /*Handles changing of menu states restricting or allowing player selections */
@@ -155,6 +156,7 @@ export default function App() {
             setEnemySprite(prevSprite => enemySelect.image2)
             setCount(count+1);
     }
+    changeZone();
 }  
 setTimeout(counter, 1000);
 
@@ -193,9 +195,7 @@ setTimeout(counter, 1000);
                 playerAttack={playerAttack} 
                 fight={fight} 
                 goBack={goBack} 
-                menu={menu} 
-                count={count} 
-                setCount={setCount}/>
+                menu={menu}/>
             </div>
     )
         }
