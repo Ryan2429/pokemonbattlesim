@@ -51,8 +51,6 @@ export default function App() {
         let totalDamage = (playerDamage * playerMoveList[0].damageModifier);
         if (enemyHealth > 0) {
         setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage))
-        console.log(totalDamage);
-        console.log(enemySelect.xpReward);
         } 
         const enemyAttack = () => {
             setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage))
@@ -84,7 +82,6 @@ export default function App() {
         }
         if (enemyHealth > 0) {
         setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage))
-        console.log(totalDamage);
         } 
         const enemyAttack = () => {
             setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage))
