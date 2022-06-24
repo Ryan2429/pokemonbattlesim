@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Options = ({ playerAttack, menu, fight, goBack }) => {
+const Options = ({ playerAttack1, playerAttack2, playerAttack3, playerAttack4, menu, fight, goBack, playerMoveList }) => {
     
 /* Handles default menu state where Player is primary */
 
@@ -34,10 +34,10 @@ const Options = ({ playerAttack, menu, fight, goBack }) => {
         return(
     <div className='options'>
         <div className='back' onClick={goBack}>Back</div>
-        <div className='listItem1' onClick={playerAttack}>Scratch</div>
-        <div className='listItem2'>----</div>
-        <div className='listItem3'>----</div>
-        <div className='listItem4'>----</div>
+        <div className='listItem1' onClick={playerAttack1}>{playerMoveList[0].name}</div>
+        <div className='listItem2' onClick={playerAttack2}>{playerMoveList[1].name}</div>
+        <div className='listItem3' onClick={playerAttack4}>{playerMoveList[3].name}</div>
+        <div className='listItem4' onClick={playerAttack3}>{playerMoveList[2].name}</div>
      </div>
         )
     }

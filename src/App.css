@@ -1,6 +1,6 @@
 /*All CSS For Options Box In Bottom Right Corner*/
 .options {
-    font-size: 4rem;
+    font-size: 2rem;
     background-color: white;
     position: absolute;
     bottom: 0;
@@ -269,7 +269,7 @@ body {
     margin-left: 61.5%;
   }
 .options {
-    font-size: 3.5rem;
+    font-size: 1.6rem;
 }
 .playerXPBar {
     /* Reset the default appearance */
@@ -324,9 +324,9 @@ body {
     }
     
     #one {
-        width: 150%;
+        width: 12em;
         height: 20em;
-        margin-left: -16%;
+        margin-left: -34%;
         transform: scaleX(-1);
     }
     .one {
@@ -335,9 +335,9 @@ body {
         border-radius: 5%;
     }
     #four {
-        width: 150%;
+        width: 12em;
         height: 20em;
-        margin-left: -14%;
+        margin-left: -32%;
         transform: scaleX(-1);
     }
     .four {
@@ -346,9 +346,9 @@ body {
         border-radius: 5%;
     }
      #seven {  
-        width: 150%;
+        width: 12em;
         height: 20em;
-        margin-left: -16%;
+        margin-left: -32%;
         transform: scaleX(-1);
     }
     .seven {
@@ -361,7 +361,7 @@ body {
     /* COMBAT SCREEN */
     /*All CSS For Options Box In Bottom Right Corner*/
 .options {
-    font-size: 1rem;
+    font-size: 0.75rem;
     background-color: white;
     position: absolute;
     bottom: 0%;
@@ -375,7 +375,7 @@ body {
     -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
 }
 .listItem1 {
-    margin-left: 10%;
+    margin-left: 5%;
     margin-top: 10%;
     margin-right: 60%;
 }
@@ -383,7 +383,7 @@ body {
     position: absolute;
     top: 0;
     right:0;
-    margin-right: 10%;
+    margin-right: 5%;
     margin-top: 10%;
 }
 
@@ -391,7 +391,7 @@ body {
     position: absolute;
     bottom: 0;
     right:0;
-    margin-right: 10%;
+    margin-right: 5%;
     margin-bottom: 10%;
 }
 
@@ -399,7 +399,7 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
-    margin-left: 10%;
+    margin-left: 5%;
     margin-bottom: 10%;
 }
 
@@ -514,6 +514,27 @@ progress[value]::-webkit-progress-bar {
   and (device-height: 658px) {
         .playerContainer {
             margin-left: 4%;
+        }
+        .options {
+            font-size: 0.68em;
+        }
+        #one {
+            width: 11em;
+            height: 18em;
+            margin-left: -37%;
+            transform: scaleX(-1);
+        }
+        #four {
+            width: 11em;
+            height: 18em;
+            margin-left: -35%;
+            transform: scaleX(-1);
+        }
+        #seven {
+            width: 10em;
+            height: 18em;
+            margin-left: -28%;
+            transform: scaleX(-1);
         }
   }
 

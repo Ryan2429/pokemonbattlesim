@@ -17,8 +17,8 @@ import Enemy from './Enemy.js';
 import Caterpie01 from './Assets/Caterpie01.png';
 import Options from './Options.js';
 import './App.css';
-
 import PokemonList from './PokemonList.js';
+import MoveList from './MoveList.js';
 
 export default function App() {
 
@@ -27,7 +27,7 @@ export default function App() {
     const [enemyLevel, setEnemyLevel] = useState(enemySelect.level);
     const [playerLevel, setPlayerLevel] = useState(5);
     const [evolveLevel, setEvolveLevel] = useState(1);
-    const playerDamage = (playerLevel * 2.15 * evolveLevel) * 2;
+    const playerDamage = ((playerLevel * 2.35 * evolveLevel) * 2);
     const [playerXP, setPlayerXP] = useState(0);
     const XPToLevelUp = playerLevel * 80;
     const enemyDamage = enemyLevel * 6 * enemySelect.damageModifier;
@@ -41,10 +41,130 @@ export default function App() {
     const [menu, setMenu] = useState('characterSelect')
     const [playerSelect, setPlayerSelect] = useState([])
     const [playerSprite, setPlayerSprite] = useState(null)
+    const [playerMoveList, setPlayerMoveList] = useState([]);
 
+
+    /* Functions that govern the 4 Attacks the player can have at any given time & handles damage calculation */
+    /*First if statement makes sure that players can't multiply by NaN if a move hasn't been loaded into a placeholder */
+    const playerAttack1 = () => {
+        if (playerMoveList[0].name != '---') {
+        let totalDamage = (playerDamage * playerMoveList[0].damageModifier);
+        if (enemyHealth > 0) {
+        setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage))
+        console.log(totalDamage);
+        console.log(enemySelect.xpReward);
+        } 
+        const enemyAttack = () => {
+            setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage))
+            setMenu('default');
+        }
+        if (enemyHealth - totalDamage > 0) {
+            setMenu('enemy');
+            setTimeout(enemyAttack, 2500);
+        } else if (enemyHealth - totalDamage <= 0) {
+            setEnemySelect(prevEnemy => selectedLevel[Math.floor(Math.random()*selectedLevel.length)]);
+            setNewEnemyHealth(prevhealth => 0);
+            rewardXP();
+            levelUp();
+            setMenu('enemy');
+            setTimeout(() => setMenu('default'), 2000);
+        }
+        if (playerMoveList[0].strongAgainst.includes(enemySelect.type)) {
+            totalDamage = totalDamage * 1.5;
+            console.log(totalDamage);
+        }
+    }
+}
+
+    const playerAttack2 = () => {
+        if (playerMoveList[1].name !== '---') {
+        let totalDamage = (playerDamage * playerMoveList[1].damageModifier);
+        if (playerMoveList[1].strongAgainst.includes(enemySelect.type)) {
+            totalDamage = totalDamage * 2;
+        }
+        if (enemyHealth > 0) {
+        setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage))
+        console.log(totalDamage);
+        } 
+        const enemyAttack = () => {
+            setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage))
+            setMenu('default');
+        }
+        if (enemyHealth - totalDamage > 0) {
+            setMenu('enemy');
+            setTimeout(enemyAttack, 2500);
+        } else if (0 >= enemyHealth - totalDamage) {
+            setEnemySelect(prevEnemy => selectedLevel[Math.floor(Math.random()*selectedLevel.length)]);
+            setNewEnemyHealth(prevhealth => 0);
+            rewardXP();
+            levelUp();
+            setMenu('enemy');
+            setTimeout(() => setMenu('default'), 2000);
+        }
+        if (playerMoveList[1].strongAgainst.includes(enemySelect.type)) {
+            totalDamage = totalDamage * 2;
+        }
+    }
+}
+
+    const playerAttack3 = () => {
+        if (playerMoveList[2].name !== '---') {
+        let totalDamage = (playerDamage * playerMoveList[2].damageModifier)
+        if (enemyHealth > 0) {
+        setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage))
+        } 
+        const enemyAttack = () => {
+            setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage))
+            setMenu('default');
+        }
+        if (enemyHealth - totalDamage > 0) {
+            setMenu('enemy');
+            setTimeout(enemyAttack, 2500);
+        } else if (enemyHealth - totalDamage <= 0) {
+            setEnemySelect(prevEnemy => selectedLevel[Math.floor(Math.random()*selectedLevel.length)]);
+            setNewEnemyHealth(prevhealth => 0);
+            rewardXP();
+            levelUp();
+            setMenu('enemy');
+            setTimeout(() => setMenu('default'), 2000);
+        }
+        if (playerMoveList[2].strongAgainst.includes(enemySelect.type)) {
+            totalDamage = totalDamage * 2;
+        }
+    }
+}
+
+    const playerAttack4 = () => {
+        if (playerMoveList[3].name !== '---') {
+        let totalDamage = (playerDamage * playerMoveList[3].damageModifier)
+        if (enemyHealth > 0) {
+        setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage))
+        } 
+        const enemyAttack = () => {
+            setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage))
+            setMenu('default');
+        }
+        if (enemyHealth - totalDamage > 0) {
+            setMenu('enemy');
+            setTimeout(enemyAttack, 2500);
+        } else if (enemyHealth - totalDamage <= 0) {
+            setEnemySelect(prevEnemy => selectedLevel[Math.floor(Math.random()*selectedLevel.length)]);
+            setNewEnemyHealth(prevhealth => 0);
+            rewardXP();
+            levelUp();
+            setMenu('enemy');
+            setTimeout(() => setMenu('default'), 2000);
+        }
+        if (playerMoveList[3].strongAgainst.includes(enemySelect.type)) {
+            totalDamage = totalDamage * 2;
+        }
+    }
+}
+
+
+    let levelingUp = (playerXP + enemySelect.xpReward) >= XPToLevelUp;
 /* Function controls spawns based upon game progression */
 const changeZone = () => {
-    let levelingUp = (playerXP + enemySelect.xpReward) >= XPToLevelUp;
     if (playerLevel === 7 && levelingUp) {
         setSelectedLevel(prevLevel => PokemonList[1]);
     }
@@ -54,20 +174,41 @@ const changeZone = () => {
     if (playerLevel === 14 && levelingUp) {
         setSelectedLevel(prevLevel => PokemonList[3]);
     }
+    if (playerLevel === 16 && levelingUp) {
+        setSelectedLevel(prevLevel => PokemonList[4]);
+    }
+    if (playerLevel === 19 && levelingUp) {
+        setSelectedLevel(prevLevel => PokemonList[5]);
+    }
 }
+
+const moveRefresh = () => {
+    if (playerLevel === 7 && levelingUp && playerName == 'Bulbasaur') {
+        setPlayerMoveList(MoveList[0][1])
+    }
+    if (playerLevel === 7 && levelingUp && playerName == 'Charmander') {
+        setPlayerMoveList(MoveList[1][1])
+    }
+    if (playerLevel === 7 && levelingUp && playerName == 'Squirtle') {
+        setPlayerMoveList(MoveList[2][1])
+    }
+}
+
 /* Rewards xp after enemy defeated */
     const rewardXP = () => {
         setPlayerXP(prevXP => playerXP + enemySelect.xpReward);
 }
+
 /*Levels up character if xp bar will be full, or greater than full and rolls over extra xp to new level xp bar */
-    const levelUp = () => {
-        if (playerXP + enemySelect.xpReward >= XPToLevelUp) {
+    const levelUp = () => { 
+        if (levelingUp) {
             setPlayerXP(prevXP => (playerXP + enemySelect.xpReward) - XPToLevelUp);
             setPlayerLevel(prevLevel => playerLevel + 1);
-            setNewPlayerHealth(prevHealth => playerMaxHealth + 20);
+            setNewPlayerHealth(prevHealth => prevHealth + (playerMaxHealth * 0.6));
             setEvolveLevel(prevEvolveLevel => evolveLevel + 0.01);
+            moveRefresh();
             evolve();
-        }
+        }    
     }
 
 /* Function evolves pokemon at appropriate level, changes sprites & name, and renders a 1% damage boost per level */
@@ -108,27 +249,6 @@ const changeZone = () => {
     /*THESE FUNCTIONS HANDLE ALL STATE CHANGES RELATIVE TO MENU SELECTIONS BETWEEN PLAYER AND ENEMY CHARACTERS*/
     /* Handles damage calculation when attacking enemy and switches state to enemy turn */
        
-    const playerAttack = () => {
-        if (enemyHealth > 0) {
-        setNewEnemyHealth(prevHealth => Math.floor(prevHealth - playerDamage))
-        } 
-        const enemyAttack = () => {
-            setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage))
-            setMenu('default');
-        }
-        if (enemyHealth - playerDamage > 0) {
-            setMenu('enemy');
-            setTimeout(enemyAttack, 2500);
-        } else if (enemyHealth - playerDamage <= 0) {
-            setEnemySelect(prevEnemy => selectedLevel[Math.floor(Math.random()*selectedLevel.length)]);
-            setNewEnemyHealth(prevhealth => 0);
-            rewardXP();
-            levelUp();
-            setMenu('enemy');
-            setTimeout(() => setMenu('default'), 2000);
-        }
-    }
-    
     /*Handles changing of menu states restricting or allowing player selections */
     const fight = () => {
         setMenu('fight');
@@ -138,9 +258,16 @@ const changeZone = () => {
         setMenu('default');
     }
     
-  /*counter runs to time animations without getting stuck in recursion loop, also now handles updating of monster level and HP on new spawn
+/*counter runs to time animations without getting stuck in recursion loop, also now handles updating of monster level and HP on new spawn
     as well as changing the combat zone*/
    
+    const healthCap = () => {
+/*Function caps player health after a level up to make sure it doesn't exceed maximum */
+        if (playerHealth > playerMaxHealth) {
+            setNewPlayerHealth(playerLevel * 20);
+        }
+    }
+
    const counter = () => { 
     if (count >= 0 && enemyHealth === 0) {
         setEnemyLevel(prevLevel => enemySelect.level);
@@ -160,6 +287,8 @@ const changeZone = () => {
             setCount(count+1);
     }
     changeZone();
+    healthCap();
+    
 }  
 setTimeout(counter, 1000);
 
@@ -173,7 +302,9 @@ setTimeout(counter, 1000);
                 count={count} 
                 playerSelect={playerSelect} 
                 setPlayerSelect={setPlayerSelect} 
-                setPlayerSprite={setPlayerSprite} 
+                setPlayerSprite={setPlayerSprite}
+                playerMoveList={playerMoveList} 
+                setPlayerMoveList={setPlayerMoveList}
                 setMenu={setMenu}
                 setEnemySelect={setEnemySelect}/>
                 
@@ -195,7 +326,11 @@ setTimeout(counter, 1000);
                 enemySprite={enemySprite}
                 enemySelect={enemySelect}/>
             <Options    
-                playerAttack={playerAttack} 
+                playerAttack1={playerAttack1}
+                playerAttack2={playerAttack2}
+                playerAttack3={playerAttack3}
+                playerAttack4={playerAttack4}
+                playerMoveList={playerMoveList}
                 fight={fight} 
                 goBack={goBack} 
                 menu={menu}/>

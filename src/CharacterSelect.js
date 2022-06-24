@@ -7,9 +7,11 @@ import Bulbasaur2 from './Assets/BulbasaurAlt.png';
 import Squirtle1 from './Assets/SquirtleDefault.png';
 import Squirtle2 from './Assets/SquirtleAlt.png';
 
+import MoveList from './MoveList.js';
 
 
-const CharacterSelect  = ({ count, playerSelect, setPlayerSprite, setMenu, playerName }) => {
+
+const CharacterSelect  = ({ count, playerSelect, setPlayerSprite, setMenu, playerName, playerMoveList }) => {
 
         const Bulbasaur = [Bulbasaur1, Bulbasaur2];
         const Charmander = [Charmander1, Charmander2];
@@ -36,6 +38,7 @@ const CharacterSelect  = ({ count, playerSelect, setPlayerSprite, setMenu, playe
         playerSelect.push(Bulbasaur[0], Bulbasaur[1])
         setPlayerSprite(prevSprite => playerSelect[0]);
         playerName.push('Bulbasaur');
+        playerMoveList.push(MoveList[0][0][0], MoveList[0][0][1], MoveList[0][0][2], MoveList[0][0][3]);
         setMenu('default');
     }
 
@@ -43,6 +46,7 @@ const CharacterSelect  = ({ count, playerSelect, setPlayerSprite, setMenu, playe
         playerSelect.push(Charmander[0], Charmander[1]);
         setPlayerSprite(prevSprite => playerSelect[0]);
         playerName.push('Charmander');
+        playerMoveList.push(MoveList[1][0][0], MoveList[1][0][1], MoveList[1][0][2], MoveList[1][0][3]);
         setMenu('default');
     }
 
@@ -50,6 +54,7 @@ const CharacterSelect  = ({ count, playerSelect, setPlayerSprite, setMenu, playe
         playerSelect.push(Squirtle[0], Squirtle[1]);
         setPlayerSprite(prevSprite => playerSelect[0]);
         playerName.push('Squirtle');
+        playerMoveList.push(MoveList[2][0][0], MoveList[2][0][1], MoveList[2][0][2], MoveList[2][0][3]);
         setMenu('default');
     }
 
