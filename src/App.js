@@ -51,7 +51,7 @@ export default function App() {
         if (playerHealth <= 0) {
         setPlayerName([]); setPlayerLevel(5); setNewPlayerHealth(playerMaxHealth); setPlayerSelect([]); setPlayerSprite(null); 
         setPlayerMoveList([]); setEvolveLevel(1); setPlayerXP(0); setSelectedLevel(PokemonList[0]); setEnemySelect(selectedLevel[0]);
-        setEnemySprite(Caterpie01); setNewEnemyHealth(enemyMaxHealth); setCount(0); setMenu('gameOver');
+        setEnemySprite(Caterpie01); setNewEnemyHealth(enemyMaxHealth); setMenu('gameOver');
     }
 }
     const newGame = () => {
@@ -203,6 +203,33 @@ const moveRefresh = () => {
     }
     if (playerLevel === 7 && levelingUp && playerName == 'Squirtle') {
         setPlayerMoveList(MoveList[2][1])
+    }
+    if (playerLevel === 8 && levelingUp && playerName == 'Bulbasaur') {
+        setPlayerMoveList(MoveList[0][2])
+    }
+    if (playerLevel === 8 && levelingUp && playerName == 'Charmander') {
+        setPlayerMoveList(MoveList[1][2])
+    }
+    if (playerLevel === 8 && levelingUp && playerName == 'Squirtle') {
+        setPlayerMoveList(MoveList[2][2])
+    }
+    if (playerLevel === 12 && levelingUp && playerName == 'Bulbasaur') {
+        setPlayerMoveList(MoveList[0][3])
+    }
+    if (playerLevel === 12 && levelingUp && playerName == 'Charmander') {
+        setPlayerMoveList(MoveList[1][3])
+    }
+    if (playerLevel === 12 && levelingUp && playerName == 'Squirtle') {
+        setPlayerMoveList(MoveList[2][3])
+    }
+    if (playerLevel === 20 && levelingUp && playerName == 'Bulbasaur') {
+        setPlayerMoveList(MoveList[0][4])
+    }
+    if (playerLevel === 20 && levelingUp && playerName == 'Charmander') {
+        setPlayerMoveList(MoveList[1][4])
+    }
+    if (playerLevel === 20 && levelingUp && playerName == 'Squirtle') {
+        setPlayerMoveList(MoveList[2][4])
     }
 }
 

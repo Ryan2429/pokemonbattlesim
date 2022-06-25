@@ -32,26 +32,26 @@ const TakeDown = new Move('Take Down', 'Normal', 1.2, []);
 const Growl = new Move('Growl', 'Normal', 0.0, [])
 
 
-const BulbasaurMoveList = [/* LV5 */[Tackle, None, None, Growl],
-                           /* LV8 */[Tackle, VineWhip, None, Growl],
+const BulbasaurMoveList = [/* LV5  */[Tackle, None, None, Growl],
+                           /* LV8  */[Tackle, VineWhip, None, Growl],
                            /* LV12 */[Tackle, RazorLeaf, LeechSeed, Growl],
                            /* LV16 */[Tackle, RazorLeaf, Absorb, Growl],
                            /* LV20 */[TakeDown, RazorLeaf, Absorb, Growl]
                           ]
 
-const CharmanderMoveList = [/* LV5 */[Scratch, None, None, Growl],
-                            /* LV8 */[Scratch, Ember, None, Growl],
+const CharmanderMoveList = [/* LV5  */[Scratch, None, None, Growl],
+                            /* LV8  */[Scratch, Ember, None, Growl],
                             /* LV12 */[Slash, Ember, None, Growl],
                             /* LV16 */[Slash, Ember, Flamethrower, Growl],
                             /* LV20 */[Slash, FireFang, Flamethrower, Growl]
                           ]
 
-const SquirtleMoveList = [/* LV5 */[Tackle, None, None, Growl],
-                          /* LV8 */[Tackle, Bubble, None, Growl],
-                          /* LV12 */[Tackle, Bubble, Protect, Growl],
-                          /* LV16 */[RapidSpin, Bubble, Protect, Growl],
-                          /* LV20 */[RapidSpin, WaterPulse, Protect, Growl]
-                        ]
+const SquirtleMoveList =   [/* LV5  */[Tackle, None, None, Growl],
+                            /* LV8  */[Tackle, Bubble, None, Growl],
+                            /* LV12 */[Tackle, Bubble, Protect, Growl],
+                            /* LV16 */[RapidSpin, Bubble, Protect, Growl],
+                            /* LV20 */[RapidSpin, WaterPulse, Protect, Growl]
+                          ]
 
 const MoveList = [BulbasaurMoveList, CharmanderMoveList, SquirtleMoveList];
 
