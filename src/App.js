@@ -16,32 +16,47 @@ import Blastoise02 from './Assets/Blastoise02.png';
 import Enemy from './Enemy.js';
 import Caterpie01 from './Assets/Caterpie01.png';
 import Options from './Options.js';
+import GameOver from './GameOver.js';
 import './App.css';
 import PokemonList from './PokemonList.js';
 import MoveList from './MoveList.js';
 
+
 export default function App() {
 
-    const [selectedLevel, setSelectedLevel] = useState(PokemonList[0]);
-    const [enemySelect, setEnemySelect] = useState(selectedLevel[0]);
-    const [enemyLevel, setEnemyLevel] = useState(enemySelect.level);
+    const [playerName, setPlayerName] = useState([]);
     const [playerLevel, setPlayerLevel] = useState(5);
+    const playerMaxHealth = playerLevel * 20;
+    const [playerHealth, setNewPlayerHealth] = useState(playerMaxHealth);
+    const [playerSelect, setPlayerSelect] = useState([])
+    const [playerSprite, setPlayerSprite] = useState(null)
+    const [playerMoveList, setPlayerMoveList] = useState([]);
     const [evolveLevel, setEvolveLevel] = useState(1);
     const playerDamage = ((playerLevel * 2.35 * evolveLevel) * 2);
     const [playerXP, setPlayerXP] = useState(0);
     const XPToLevelUp = playerLevel * 80;
+    const [selectedLevel, setSelectedLevel] = useState(PokemonList[0]);
+    const [enemySelect, setEnemySelect] = useState(selectedLevel[0]);
+    const [enemyLevel, setEnemyLevel] = useState(enemySelect.level);
     const enemyDamage = enemyLevel * 6 * enemySelect.damageModifier;
-    const [playerName, setPlayerName] = useState([]);
-    const playerMaxHealth = playerLevel * 20;
-    const [playerHealth, setNewPlayerHealth] = useState(playerMaxHealth);
     const [enemySprite, setEnemySprite] = useState(Caterpie01);
     const enemyMaxHealth = enemyLevel * 20;
     const [enemyHealth, setNewEnemyHealth] = useState(enemyMaxHealth)
     const [count, setCount] = useState(0)
-    const [menu, setMenu] = useState('characterSelect')
-    const [playerSelect, setPlayerSelect] = useState([])
-    const [playerSprite, setPlayerSprite] = useState(null)
-    const [playerMoveList, setPlayerMoveList] = useState([]);
+    const [menu, setMenu] = useState('gameOver')
+    
+
+    /* Resets to initial game state on character death */
+    const gameOver = () => {
+        if (playerHealth <= 0) {
+        setPlayerName([]); setPlayerLevel(5); setNewPlayerHealth(playerMaxHealth); setPlayerSelect([]); setPlayerSprite(null); 
+        setPlayerMoveList([]); setEvolveLevel(1); setPlayerXP(0); setSelectedLevel(PokemonList[0]); setEnemySelect(selectedLevel[0]);
+        setEnemySprite(Caterpie01); setNewEnemyHealth(enemyMaxHealth); setCount(0); setMenu('gameOver');
+    }
+}
+    const newGame = () => {
+        setMenu('characterSelect');
+    }
 
 
     /* Functions that govern the 4 Attacks the player can have at any given time & handles damage calculation */
@@ -285,7 +300,8 @@ const moveRefresh = () => {
     }
     changeZone();
     healthCap();
-    
+    gameOver();
+    console.log(count);
 }  
 setTimeout(counter, 1000);
 
@@ -306,7 +322,13 @@ setTimeout(counter, 1000);
                 setEnemySelect={setEnemySelect}/>
                 
         </div>
-    )} else { 
+    )} else if (menu === 'gameOver') {
+        return (
+            <div>
+                <GameOver newGame={newGame} count={count}/>
+            </div>
+        )
+} else {
         return (
             <div>
             <PlayerChar

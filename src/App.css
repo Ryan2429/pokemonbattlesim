@@ -260,6 +260,29 @@ body {
     margin-right: 3%;
 }
 
+.gameOver {
+    font-size: 3em;
+    text-align: center;
+    margin-top: 10%;
+    cursor: pointer;
+    line-height: 150%;
+    color: red;
+}
+.egg {
+    z-index: -1;
+    margin-top: -32%;
+    height: 15em;
+}
+.eggShadow {
+    margin-top: 10%;
+    margin-left: 40%;
+    height: 6em;
+    width: 8em;
+    background: rgb(0, 0, 0);
+    border-radius: 100%;
+    box-shadow: 0px 8px 25px 20px black;
+}
+
 /* Media query for laptop screens */
 @media screen 
   and (min-device-width: 1200px) 
@@ -282,6 +305,14 @@ body {
   }
 .back {
     bottom: 100.5%;
+}
+.egg {
+    margin-top: -40%;
+    margin-right: 1%;
+}
+.eggShadow {
+    margin-left: 37%;
+    margin-top: 8%;
 }
 }
 
@@ -438,9 +469,19 @@ body {
     height: auto;
     width: 40%;
 }
-
-body {
-    background-color: #E8E8E8;
+.gameOver {
+    font-size: 2em;
+}
+.egg {
+    height: 18em;
+    z-index: -1;
+    margin-top: -140%;
+    margin-left: -32%;
+}
+.eggShadow {
+    margin-top: 40%;
+    margin-left: 13%;
+    box-shadow: 0px 0px 20px 15px black;
 }
 
 /* Styling for Health Bars */
@@ -535,6 +576,17 @@ progress[value]::-webkit-progress-bar {
             height: 18em;
             margin-left: -28%;
             transform: scaleX(-1);
+        }
+        .egg {
+            height: 18em;
+            z-index: -1;
+            margin-top: -160%;
+            margin-left: -43%;
+        }
+        .eggShadow {
+            margin-top: 40%;
+            margin-left: 8%;
+            box-shadow: 0px 0px 20px 15px black;
         }
   }
 
