@@ -89,17 +89,20 @@
     border: 2px solid green;
     color: green;
     border-radius: 5%;
+    box-shadow: 0px 0px 20px 10px green;
 }
 #four {
     width: 80%;
     height: 20em;
     margin-right: -15%;
     transform: scaleX(-1);
+    
 }
 .four {
     border: 2px solid red;
     color: red;
     border-radius: 5%;
+    box-shadow: 0px 0px 20px 10px red;
 }
  #seven {  
     width: 80%;
@@ -111,6 +114,7 @@
     border: 2px solid blue;
     color: blue;
     border-radius: 5%; 
+    box-shadow: 0px 0px 20px 10px blue;
 }
 
 /*Styling for game background*/
@@ -364,6 +368,7 @@ body {
         border: 2px solid green;
         color: green;
         border-radius: 5%;
+        box-shadow: 0px 0px 5px 4px green;   
     }
     #four {
         width: 12em;
@@ -375,6 +380,7 @@ body {
         border: 2px solid red;
         color: red;
         border-radius: 5%;
+        box-shadow: 0px 0px 5px 4px red;
     }
      #seven {  
         width: 12em;
@@ -386,6 +392,7 @@ body {
         border: 2px solid blue;
         color: blue;
         border-radius: 5%; 
+        box-shadow: 0px 0px 5px 4px blue;
     }
     /* CHARACTER SELECT SCREEN */
 
@@ -591,8 +598,8 @@ progress[value]::-webkit-progress-bar {
   }
   /* media query for iphone 12 */
   @media only screen 
-  and (device-width: 390px) 
-  and (device-height: 844px)
+  and (min-device-width: 390px) 
+  and (max-device-height: 896px)
   and (-webkit-device-pixel-ratio: 3) {
       #one {
           margin-left: -27%;
