@@ -26,7 +26,7 @@ export default function App() {
 
     const [playerName, setPlayerName] = useState([]);
     const [playerLevel, setPlayerLevel] = useState(5);
-    const playerMaxHealth = playerLevel * 1;
+    const playerMaxHealth = playerLevel * 20;
     const [playerHealth, setNewPlayerHealth] = useState(playerMaxHealth);
     const [playerSelect, setPlayerSelect] = useState([])
     const [playerSprite, setPlayerSprite] = useState(null)
