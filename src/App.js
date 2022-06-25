@@ -26,7 +26,7 @@ export default function App() {
 
     const [playerName, setPlayerName] = useState([]);
     const [playerLevel, setPlayerLevel] = useState(5);
-    const playerMaxHealth = playerLevel * 20;
+    const playerMaxHealth = playerLevel * 1;
     const [playerHealth, setNewPlayerHealth] = useState(playerMaxHealth);
     const [playerSelect, setPlayerSelect] = useState([])
     const [playerSprite, setPlayerSprite] = useState(null)
@@ -49,13 +49,13 @@ export default function App() {
     /* Resets to initial game state on character death */
     const gameOver = () => {
         if (playerHealth <= 0) {
-        setPlayerName([]); setPlayerLevel(5); setNewPlayerHealth(playerMaxHealth); setPlayerSelect([]); setPlayerSprite(null); 
-        setPlayerMoveList([]); setEvolveLevel(1); setPlayerXP(0); setSelectedLevel(PokemonList[0]); setEnemySelect(selectedLevel[0]);
-        setEnemySprite(Caterpie01); setNewEnemyHealth(enemyMaxHealth); setMenu('gameOver');
+         setMenu('gameOver'); setNewPlayerHealth(1);
     }
 }
     const newGame = () => {
-        setMenu('characterSelect');
+        setMenu('characterSelect'); setPlayerName([]); setPlayerLevel(5); setNewPlayerHealth(playerMaxHealth); setPlayerSelect([]); setPlayerSprite(null); 
+        setPlayerMoveList([]); setEvolveLevel(1); setPlayerXP(0); setSelectedLevel(PokemonList[0]); setEnemySelect(selectedLevel[0]);
+        setEnemySprite(Caterpie01); setNewEnemyHealth(enemyMaxHealth);
     }
 
 
@@ -83,7 +83,7 @@ export default function App() {
             setTimeout(() => setMenu('default'), 2000);
         }
         if (playerMoveList[0].strongAgainst.includes(enemySelect.type)) {
-            totalDamage = totalDamage * 1.5;
+            totalDamage = totalDamage * 2.5;
             console.log(totalDamage);
         }
     }
@@ -92,9 +92,6 @@ export default function App() {
     const playerAttack2 = () => {
         if (playerMoveList[1].name !== '---') {
         let totalDamage = (playerDamage * playerMoveList[1].damageModifier);
-        if (playerMoveList[1].strongAgainst.includes(enemySelect.type)) {
-            totalDamage = totalDamage * 2;
-        }
         if (enemyHealth > 0) {
         setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage))
         } 
@@ -114,7 +111,7 @@ export default function App() {
             setTimeout(() => setMenu('default'), 2000);
         }
         if (playerMoveList[1].strongAgainst.includes(enemySelect.type)) {
-            totalDamage = totalDamage * 2;
+            totalDamage = totalDamage * 2.5;
         }
     }
 }
@@ -141,7 +138,7 @@ export default function App() {
             setTimeout(() => setMenu('default'), 2000);
         }
         if (playerMoveList[2].strongAgainst.includes(enemySelect.type)) {
-            totalDamage = totalDamage * 2;
+            totalDamage = totalDamage * 2.5;
         }
     }
 }
@@ -168,7 +165,7 @@ export default function App() {
             setTimeout(() => setMenu('default'), 2000);
         }
         if (playerMoveList[3].strongAgainst.includes(enemySelect.type)) {
-            totalDamage = totalDamage * 2;
+            totalDamage = totalDamage * 2.5;
         }
     }
 }
