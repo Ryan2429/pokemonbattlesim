@@ -43,7 +43,7 @@ export default function App() {
     const enemyMaxHealth = enemyLevel * 20;
     const [enemyHealth, setNewEnemyHealth] = useState(enemyMaxHealth)
     const [count, setCount] = useState(0)
-    const [menu, setMenu] = useState('characterSelect')
+    const [menu, setMenu] = useState('gameOver')
     
 
     /* Resets to initial game state on character death */

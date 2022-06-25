@@ -589,5 +589,26 @@ progress[value]::-webkit-progress-bar {
             box-shadow: 0px 0px 20px 15px black;
         }
   }
-
+  /* media query for iphone 12 */
+  @media only screen 
+  and (device-width: 390px) 
+  and (device-height: 844px)
+  and (-webkit-device-pixel-ratio: 3) {
+      #one {
+          margin-left: -27%;
+      }
+      #four {
+          margin-left: -25%;
+      }
+      #seven {
+          margin-left: -25%;
+      }
+      .egg {
+          margin-left: -26%;
+          margin-top: -130%;
+      }
+      .eggShadow {
+          margin-left: 16%;
+      }
+  }
   
