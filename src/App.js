@@ -64,6 +64,9 @@ export default function App() {
     const playerAttack1 = () => {
         if (playerMoveList[0].name != '---') {
         let totalDamage = (playerDamage * playerMoveList[0].damageModifier);
+        if (playerMoveList[0].strongAgainst.includes(enemySelect.type)) {
+            totalDamage = totalDamage * 2.5;
+        }
         if (enemyHealth > 0) {
         setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage))
         } 
@@ -82,16 +85,16 @@ export default function App() {
             setMenu('enemy');
             setTimeout(() => setMenu('default'), 2000);
         }
-        if (playerMoveList[0].strongAgainst.includes(enemySelect.type)) {
-            totalDamage = totalDamage * 2.5;
-            console.log(totalDamage);
-        }
+        
     }
 }
 
     const playerAttack2 = () => {
         if (playerMoveList[1].name !== '---') {
         let totalDamage = (playerDamage * playerMoveList[1].damageModifier);
+        if (playerMoveList[1].strongAgainst.includes(enemySelect.type)) {
+            totalDamage = totalDamage * 2.5;
+        }
         if (enemyHealth > 0) {
         setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage))
         } 
@@ -109,16 +112,16 @@ export default function App() {
             levelUp();
             setMenu('enemy');
             setTimeout(() => setMenu('default'), 2000);
-        }
-        if (playerMoveList[1].strongAgainst.includes(enemySelect.type)) {
-            totalDamage = totalDamage * 2.5;
-        }
+        }  
     }
 }
 
     const playerAttack3 = () => {
         if (playerMoveList[2].name !== '---') {
         let totalDamage = (playerDamage * playerMoveList[2].damageModifier)
+        if (playerMoveList[2].strongAgainst.includes(enemySelect.type)) {
+            totalDamage = totalDamage * 2.5;
+        }
         if (enemyHealth > 0) {
         setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage))
         } 
@@ -136,9 +139,6 @@ export default function App() {
             levelUp();
             setMenu('enemy');
             setTimeout(() => setMenu('default'), 2000);
-        }
-        if (playerMoveList[2].strongAgainst.includes(enemySelect.type)) {
-            totalDamage = totalDamage * 2.5;
         }
     }
 }
@@ -146,6 +146,9 @@ export default function App() {
     const playerAttack4 = () => {
         if (playerMoveList[3].name !== '---') {
         let totalDamage = (playerDamage * playerMoveList[3].damageModifier)
+        if (playerMoveList[3].strongAgainst.includes(enemySelect.type)) {
+            totalDamage = totalDamage * 2.5;
+        }
         if (enemyHealth > 0) {
         setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage))
         } 
@@ -163,9 +166,6 @@ export default function App() {
             levelUp();
             setMenu('enemy');
             setTimeout(() => setMenu('default'), 2000);
-        }
-        if (playerMoveList[3].strongAgainst.includes(enemySelect.type)) {
-            totalDamage = totalDamage * 2.5;
         }
     }
 }
@@ -325,7 +325,6 @@ const moveRefresh = () => {
     changeZone();
     healthCap();
     gameOver();
-    console.log(count);
 }  
 setTimeout(counter, 1000);
 
