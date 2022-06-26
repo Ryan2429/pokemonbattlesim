@@ -219,13 +219,13 @@ const moveRefresh = () => {
     if (playerLevel === 12 && levelingUp && playerName == 'Squirtle') {
         setPlayerMoveList(MoveList[2][3])
     }
-    if (playerLevel === 20 && levelingUp && playerName == 'Bulbasaur') {
+    if (playerLevel === 20 && levelingUp && playerName == 'Ivysaur') {
         setPlayerMoveList(MoveList[0][4])
     }
-    if (playerLevel === 20 && levelingUp && playerName == 'Charmander') {
+    if (playerLevel === 20 && levelingUp && playerName == 'Charmeleon') {
         setPlayerMoveList(MoveList[1][4])
     }
-    if (playerLevel === 20 && levelingUp && playerName == 'Squirtle') {
+    if (playerLevel === 20 && levelingUp && playerName == 'Wartortle') {
         setPlayerMoveList(MoveList[2][4])
     }
 }
