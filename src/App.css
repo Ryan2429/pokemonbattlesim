@@ -1,4 +1,18 @@
 /*All CSS For Options Box In Bottom Right Corner*/
+@font-face {
+    font-family: pokemon-solid;
+        src: url('./Assets/pokemon-solid.ttf');
+}
+.titleScreen {
+    text-align: center;
+    font-size: 1.2em;
+    font-family: pokemon-solid;
+    letter-spacing: 3px;
+}
+.startButton {
+    font-size: 2em;
+    border: 2px solid black;
+}
 .options {
     font-size: 2rem;
     background-color: white;
@@ -55,6 +69,8 @@
 
 /* Styling for CharacterSelection screen */
 
+
+
 .starter {
     position: relative;
     margin-top: 6%;
@@ -66,9 +82,10 @@
 }
 
 .tagLine {
+    font-family: pokemon-solid;
     text-align: center;
     font-weight: bold;
-    font-size: 4em;
+    font-size: 3em;
     color: black;
 }
 
@@ -265,6 +282,7 @@ body {
 }
 
 .gameOver {
+    font-family: pokemon-solid;
     font-size: 3em;
     text-align: center;
     margin-top: 10%;
@@ -330,7 +348,10 @@ body {
         position: relative;
         
       }
-      
+    /* TITLE SCREEN */
+    .titleScreen {
+    font-size: 0.6em;
+    }
 
     /* CHARACTER SELECT SCREEN */
     .starter {
@@ -345,9 +366,10 @@ body {
     
     .tagLine {
         text-align: center;
-        font-weight: bold;
-        font-size: 3em;
+        font-weight: bold;  
+        font-size: 2em;
         color: black;
+        margin-bottom: 20%;
     }
     
     .starterName {
@@ -478,6 +500,7 @@ body {
 }
 .gameOver {
     font-size: 2em;
+    letter-spacing: 0.5px;
 }
 .egg {
     height: 18em;
@@ -560,6 +583,9 @@ progress[value]::-webkit-progress-bar {
 @media screen 
   and (device-width: 320px) 
   and (device-height: 658px) {
+      .titleScreen {
+          font-size: 0.55em;
+      }
         .playerContainer {
             margin-left: 4%;
         }
@@ -601,6 +627,9 @@ progress[value]::-webkit-progress-bar {
   and (min-device-width: 390px) 
   and (max-device-height: 896px)
   and (-webkit-device-pixel-ratio: 3) {
+      .titleScreen {
+          font-size: 0.7em;
+      }
       #one {
           margin-left: -27%;
       }

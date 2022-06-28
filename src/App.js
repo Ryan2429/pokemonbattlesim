@@ -1,4 +1,10 @@
 import React, { useState } from "react";
+import OpeningTheme from './Assets/opening-theme.mp3';
+import GameoverTheme from './Assets/gameover-theme.mp3';
+import BattleTheme from './Assets/battle-theme.mp3';
+import playerAttackSound from './Assets/player-attack-sound.mp3';
+import enemyAttackSound from './Assets/enemy-attack-sound.mp3';
+import TitleScreen from './TitleScreen.js';
 import CharacterSelect from './CharacterSelect.js';
 import PlayerChar from './PlayerChar.js';
 import Ivysaur01 from './Assets/Ivysaur01.png';
@@ -43,7 +49,8 @@ export default function App() {
     const enemyMaxHealth = enemyLevel * 20;
     const [enemyHealth, setNewEnemyHealth] = useState(enemyMaxHealth)
     const [count, setCount] = useState(0)
-    const [menu, setMenu] = useState('characterSelect')
+    const [menu, setMenu] = useState('titleScreen')
+    const [music, setMusic] = useState();
     
 
     /* Resets to initial game state on character death */
@@ -57,6 +64,21 @@ export default function App() {
         setPlayerMoveList([]); setEvolveLevel(1); setPlayerXP(0); setSelectedLevel(PokemonList[0]); setEnemySelect(selectedLevel[0]);
         setEnemySprite(Caterpie01); setNewEnemyHealth(enemyMaxHealth);
     }
+    const attackSound = (sound) => {
+        let beat = new Audio(sound);
+        beat.play();
+    }
+
+/*
+    const playerDamageSound = () => {
+        let beat = new Audio(playerAttackSound);
+        beat.play();
+    } 
+    const enemyDamageSound = () => {
+        let beat = new Audio(enemyAttackSound);
+        beat.play();
+    }
+    */
 
 
     /* Functions that govern the 4 Attacks the player can have at any given time & handles damage calculation */
@@ -68,10 +90,12 @@ export default function App() {
             totalDamage = totalDamage * 2.5;
         }
         if (enemyHealth > 0) {
-        setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage))
+        setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage));
+        attackSound(playerAttackSound);
         } 
         const enemyAttack = () => {
-            setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage))
+            setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage));
+            attackSound(enemyAttackSound);
             setMenu('default');
         }
         if (enemyHealth - totalDamage > 0) {
@@ -85,7 +109,6 @@ export default function App() {
             setMenu('enemy');
             setTimeout(() => setMenu('default'), 2000);
         }
-        
     }
 }
 
@@ -96,10 +119,12 @@ export default function App() {
             totalDamage = totalDamage * 2.5;
         }
         if (enemyHealth > 0) {
-        setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage))
+        setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage));
+        attackSound(playerAttackSound);
         } 
         const enemyAttack = () => {
-            setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage))
+            setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage));
+            attackSound(enemyAttackSound);
             setMenu('default');
         }
         if (enemyHealth - totalDamage > 0) {
@@ -123,10 +148,12 @@ export default function App() {
             totalDamage = totalDamage * 2.5;
         }
         if (enemyHealth > 0) {
-        setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage))
+        setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage));
+        attackSound(playerAttackSound);
         } 
         const enemyAttack = () => {
-            setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage))
+            setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage));
+            attackSound(enemyAttackSound);
             setMenu('default');
         }
         if (enemyHealth - totalDamage > 0) {
@@ -150,10 +177,12 @@ export default function App() {
             totalDamage = totalDamage * 2.5;
         }
         if (enemyHealth > 0) {
-        setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage))
+        setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage));
+        attackSound(playerAttackSound);
         } 
         const enemyAttack = () => {
-            setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage))
+            setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage));
+            attackSound(enemyAttackSound);
             setMenu('default');
         }
         if (enemyHealth - totalDamage > 0) {
@@ -327,10 +356,20 @@ const moveRefresh = () => {
     gameOver();
 }  
 setTimeout(counter, 1000);
-
+    
+    if (menu === 'titleScreen') {
+        return(
+            <div>
+                <TitleScreen 
+                setMusic={setMusic}
+                setMenu={setMenu} />
+            </div>
+        )
+    }
     if (menu === 'characterSelect') {
     return (
         <div>
+            <audio src={OpeningTheme} loop autoPlay='true' />
             <CharacterSelect 
                 playerName={playerName}
                 setPlayerName={setPlayerName}
@@ -342,18 +381,24 @@ setTimeout(counter, 1000);
                 playerMoveList={playerMoveList} 
                 setPlayerMoveList={setPlayerMoveList}
                 setMenu={setMenu}
-                setEnemySelect={setEnemySelect}/>
-                
+                setEnemySelect={setEnemySelect}
+                setMusic={setMusic}/> 
         </div>
-    )} else if (menu === 'gameOver') {
+        )
+    } 
+    if (menu === 'gameOver') {
         return (
             <div>
-                <GameOver newGame={newGame} count={count}/>
+                <audio src={GameoverTheme} loop autoPlay='true' />
+                <GameOver 
+                newGame={newGame} 
+                count={count}/>
             </div>
         )
 } else {
         return (
             <div>
+            <audio src={BattleTheme} loop autoPlay='true' />
             <PlayerChar
                 playerName={playerName}
                 playerHealth={playerHealth} 

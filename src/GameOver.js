@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import EggLeft from './Assets/EggLeft.png';
 import EggRight from './Assets/EggRight.png';
 
-
 const GameOver = ( { newGame, count }) => {
 
     const [eggImage, setEggImage] = useState(EggRight);
@@ -23,7 +22,6 @@ const GameOver = ( { newGame, count }) => {
 
 
 return (
-    
     <div className='gameOver'>
     <div> Oh No! Your Pokemon Has Fainted! </div>
     <div>Hatch the egg to start a new game!</div>

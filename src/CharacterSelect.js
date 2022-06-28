@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+
 import Charmander1 from './Assets/CharmanderDefault.png';
 import Charmander2 from './Assets/CharmanderAlt.png';
 import Bulbasaur1 from './Assets/BulbasaurDefault.png';
@@ -11,7 +12,7 @@ import MoveList from './MoveList.js';
 
 
 
-const CharacterSelect  = ({ count, playerSelect, setPlayerSprite, setMenu, playerName, playerMoveList }) => {
+const CharacterSelect  = ({ count, playerSelect, setPlayerSprite, setMenu, playerName, playerMoveList, setMusic }) => {
 
         const Bulbasaur = [Bulbasaur1, Bulbasaur2];
         const Charmander = [Charmander1, Charmander2];
