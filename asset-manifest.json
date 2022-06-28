@@ -1,21 +1,35 @@
 {
   "files": {
-    "main.css": "/pokemonbattlesim/static/css/main.a1e8ed59.css",
-    "main.js": "/pokemonbattlesim/static/js/main.1f2f704c.js",
+    "main.css": "/pokemonbattlesim/static/css/main.b7c55b02.css",
+    "main.js": "/pokemonbattlesim/static/js/main.b3dffc77.js",
     "static/media/opening-theme.mp3": "/pokemonbattlesim/static/media/opening-theme.c956571ebf1551639c44.mp3",
-    "static/media/battle-theme.mp3": "/pokemonbattlesim/static/media/battle-theme.f30ba7aff277680d4f22.mp3",
+    "static/media/battle-theme.mp3": "/pokemonbattlesim/static/media/battle-theme.a6f63115a569e428adb0.mp3",
+    "static/media/flamethrower.mp3": "/pokemonbattlesim/static/media/flamethrower.0196c0b30bd5c3d40647.mp3",
+    "static/media/absorb.mp3": "/pokemonbattlesim/static/media/absorb.f4f2b893105f7450e07a.mp3",
+    "static/media/leech-seed.mp3": "/pokemonbattlesim/static/media/leech-seed.8c1b73b623adf30c6ac6.mp3",
+    "static/media/razor-leaf.mp3": "/pokemonbattlesim/static/media/razor-leaf.7cd2454a58d85eb844bb.mp3",
     "static/media/gameover-theme.mp3": "/pokemonbattlesim/static/media/gameover-theme.ebe9d39f4bc65f36dd20.mp3",
-    "static/media/enemy-attack-sound.mp3": "/pokemonbattlesim/static/media/enemy-attack-sound.c4ad85d99245e59b79d5.mp3",
-    "static/media/player-attack-sound.mp3": "/pokemonbattlesim/static/media/player-attack-sound.8ebfb4e053c54926b1fc.mp3",
+    "static/media/water-pulse.mp3": "/pokemonbattlesim/static/media/water-pulse.93dff00e77270ff27981.mp3",
+    "static/media/rapid-spin.mp3": "/pokemonbattlesim/static/media/rapid-spin.6717cd99b3eb8570d8a5.mp3",
+    "static/media/fire-fang.mp3": "/pokemonbattlesim/static/media/fire-fang.b18ab69484ff7f11decb.mp3",
+    "static/media/bubble.mp3": "/pokemonbattlesim/static/media/bubble.ee36340e946765eefa2d.mp3",
+    "static/media/ember.mp3": "/pokemonbattlesim/static/media/ember.a802e780afdc18d59e9c.mp3",
+    "static/media/protect.mp3": "/pokemonbattlesim/static/media/protect.0c629d5996571e2555e4.mp3",
+    "static/media/growl.mp3": "/pokemonbattlesim/static/media/growl.bb0ed1792f2bffab2205.mp3",
+    "static/media/slash.mp3": "/pokemonbattlesim/static/media/slash.7a2e55bc6d6cd7159175.mp3",
+    "static/media/enemy-attack-sound.mp3": "/pokemonbattlesim/static/media/enemy-attack-sound.6d0f34a32b55212afad5.mp3",
+    "static/media/tackle.mp3": "/pokemonbattlesim/static/media/tackle.63f0c8d1a45777bcbcb0.mp3",
+    "static/media/vine-whip.mp3": "/pokemonbattlesim/static/media/vine-whip.0512170e162fd11df14c.mp3",
+    "static/media/scratch.mp3": "/pokemonbattlesim/static/media/scratch.6dd2cbd00443a51a9bce.mp3",
     "static/media/EggLeft.png": "/pokemonbattlesim/static/media/EggLeft.c775be974971350cf4bb.png",
     "static/media/EggRight.png": "/pokemonbattlesim/static/media/EggRight.64a7867421c9dc8ee42a.png",
     "static/media/pokemon-solid.ttf": "/pokemonbattlesim/static/media/pokemon-solid.5d60be1f7ff5fcc21fc1.ttf",
     "index.html": "/pokemonbattlesim/index.html",
-    "main.a1e8ed59.css.map": "/pokemonbattlesim/static/css/main.a1e8ed59.css.map",
-    "main.1f2f704c.js.map": "/pokemonbattlesim/static/js/main.1f2f704c.js.map"
+    "main.b7c55b02.css.map": "/pokemonbattlesim/static/css/main.b7c55b02.css.map",
+    "main.b3dffc77.js.map": "/pokemonbattlesim/static/js/main.b3dffc77.js.map"
   },
   "entrypoints": [
-    "static/css/main.a1e8ed59.css",
-    "static/js/main.1f2f704c.js"
+    "static/css/main.b7c55b02.css",
+    "static/js/main.b3dffc77.js"
   ]
 }
