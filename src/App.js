@@ -48,7 +48,7 @@ export default function App() {
     const enemyMaxHealth = enemyLevel * 20;
     const [enemyHealth, setNewEnemyHealth] = useState(enemyMaxHealth)
     const [count, setCount] = useState(0)
-    const [menu, setMenu] = useState('gameOver')
+    const [menu, setMenu] = useState('characterSelect')
     const [music, setMusic] = useState();
     const [growlCounter, setGrowlCounter] = useState(0);
 
