@@ -12,7 +12,7 @@ import MoveList from './MoveList.js';
 
 
 
-const CharacterSelect  = ({ count, playerSelect, setPlayerSprite, setMenu, playerName, playerMoveList, setMusic }) => {
+const CharacterSelect  = ({ count, playerSelect, setPlayerSprite, setMenu, playerName, playerMoveList }) => {
 
         const Bulbasaur = [Bulbasaur1, Bulbasaur2];
         const Charmander = [Charmander1, Charmander2];

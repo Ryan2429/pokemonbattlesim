@@ -2,7 +2,7 @@ import React from 'react';
 import EnemyHealthBar from './EnemyHealthBar.js';
 import './App.css';
 
-const Enemy = ({ enemyHealth, enemySprite, enemySelect, enemyLevel}) => {
+const Enemy = ({ enemyHealth, enemySprite, enemySelect, enemyLevel, growlCounter}) => {
     
         return (
     <div>
@@ -13,6 +13,9 @@ const Enemy = ({ enemyHealth, enemySprite, enemySelect, enemyLevel}) => {
              <span className='enemyLevel'>Level: {enemySelect.level}</span>
              <span className='health'>{enemyHealth}</span>
             <EnemyHealthBar className='enemyHealth' enemyHealth={enemyHealth} enemyLevel={enemyLevel}/>
+            {growlCounter > 0 &&
+            <span className='statusEffect'>Growl - Damage Reduced {growlCounter} Turns</span>
+            }
         </div>
         </div>
     </div>

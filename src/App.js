@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import OpeningTheme from './Assets/opening-theme.mp3';
 import GameoverTheme from './Assets/gameover-theme.mp3';
 import BattleTheme from './Assets/battle-theme.mp3';
-import playerAttackSound from './Assets/player-attack-sound.mp3';
 import enemyAttackSound from './Assets/enemy-attack-sound.mp3';
 import TitleScreen from './TitleScreen.js';
 import CharacterSelect from './CharacterSelect.js';
@@ -49,9 +48,9 @@ export default function App() {
     const enemyMaxHealth = enemyLevel * 20;
     const [enemyHealth, setNewEnemyHealth] = useState(enemyMaxHealth)
     const [count, setCount] = useState(0)
-    const [menu, setMenu] = useState('titleScreen')
+    const [menu, setMenu] = useState('gameOver')
     const [music, setMusic] = useState();
-    
+    const [growlCounter, setGrowlCounter] = useState(0);
 
     /* Resets to initial game state on character death */
     const gameOver = () => {
@@ -69,20 +68,28 @@ export default function App() {
         beat.play();
     }
 
-/*
-    const playerDamageSound = () => {
-        let beat = new Audio(playerAttackSound);
-        beat.play();
-    } 
-    const enemyDamageSound = () => {
-        let beat = new Audio(enemyAttackSound);
-        beat.play();
-    }
-    */
-
-
     /* Functions that govern the 4 Attacks the player can have at any given time & handles damage calculation */
     /*First if statement makes sure that players can't multiply by NaN if a move hasn't been loaded into a placeholder */
+    const enemyAttack = () => {
+        if (growlCounter > 0) {
+        let growlModifier = (enemyDamage * 0.7)
+        setNewPlayerHealth(prevHealth => Math.floor(prevHealth - growlModifier));
+        attackSound(enemyAttackSound);
+        setGrowlCounter(prevCount => growlCounter - 1);
+        console.log('growl active')
+        console.log(growlCounter);
+        console.log(growlModifier);
+        setMenu('default');
+    } else {
+        setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage));
+        attackSound(enemyAttackSound);
+        console.log('growl not active')
+        console.log(growlCounter);
+        console.log(enemyDamage);
+        setMenu('default');
+    }
+}
+
     const playerAttack1 = () => {
         if (playerMoveList[0].name != '---') {
         let totalDamage = (playerDamage * playerMoveList[0].damageModifier);
@@ -91,13 +98,8 @@ export default function App() {
         }
         if (enemyHealth > 0) {
         setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage));
-        attackSound(playerAttackSound);
+        attackSound(playerMoveList[0].attackSound);
         } 
-        const enemyAttack = () => {
-            setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage));
-            attackSound(enemyAttackSound);
-            setMenu('default');
-        }
         if (enemyHealth - totalDamage > 0) {
             setMenu('enemy');
             setTimeout(enemyAttack, 2500);
@@ -113,20 +115,15 @@ export default function App() {
 }
 
     const playerAttack2 = () => {
-        if (playerMoveList[1].name !== '---') {
+        if (playerMoveList[1].name != '---') {
         let totalDamage = (playerDamage * playerMoveList[1].damageModifier);
         if (playerMoveList[1].strongAgainst.includes(enemySelect.type)) {
             totalDamage = totalDamage * 2.5;
         }
         if (enemyHealth > 0) {
         setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage));
-        attackSound(playerAttackSound);
+        attackSound(playerMoveList[1].attackSound);
         } 
-        const enemyAttack = () => {
-            setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage));
-            attackSound(enemyAttackSound);
-            setMenu('default');
-        }
         if (enemyHealth - totalDamage > 0) {
             setMenu('enemy');
             setTimeout(enemyAttack, 2500);
@@ -149,13 +146,8 @@ export default function App() {
         }
         if (enemyHealth > 0) {
         setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage));
-        attackSound(playerAttackSound);
+        attackSound(playerMoveList[2].attackSound);
         } 
-        const enemyAttack = () => {
-            setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage));
-            attackSound(enemyAttackSound);
-            setMenu('default');
-        }
         if (enemyHealth - totalDamage > 0) {
             setMenu('enemy');
             setTimeout(enemyAttack, 2500);
@@ -171,33 +163,20 @@ export default function App() {
 }
 
     const playerAttack4 = () => {
-        if (playerMoveList[3].name !== '---') {
-        let totalDamage = (playerDamage * playerMoveList[3].damageModifier)
-        if (playerMoveList[3].strongAgainst.includes(enemySelect.type)) {
-            totalDamage = totalDamage * 2.5;
-        }
+        setGrowlCounter(2);
+        let totalDamage = (playerDamage * playerMoveList[3].damageModifier);
         if (enemyHealth > 0) {
         setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage));
-        attackSound(playerAttackSound);
+        attackSound(playerMoveList[3].attackSound);
         } 
-        const enemyAttack = () => {
-            setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage));
-            attackSound(enemyAttackSound);
-            setMenu('default');
-        }
         if (enemyHealth - totalDamage > 0) {
             setMenu('enemy');
             setTimeout(enemyAttack, 2500);
-        } else if (enemyHealth - totalDamage <= 0) {
-            setEnemySelect(prevEnemy => selectedLevel[Math.floor(Math.random()*selectedLevel.length)]);
-            setNewEnemyHealth(prevhealth => 0);
-            rewardXP();
-            levelUp();
-            setMenu('enemy');
-            setTimeout(() => setMenu('default'), 2000);
-        }
+            console.log(enemyDamage);
+        } 
+        setTimeout(() => setMenu('default'), 2000);
     }
-}
+
 
 
     let levelingUp = (playerXP + enemySelect.xpReward) >= XPToLevelUp;
@@ -262,6 +241,7 @@ const moveRefresh = () => {
 /* Rewards xp after enemy defeated */
     const rewardXP = () => {
         setPlayerXP(prevXP => playerXP + enemySelect.xpReward);
+        setGrowlCounter(0);
 }
 
 /*Levels up character if xp bar will be full, or greater than full and rolls over extra xp to new level xp bar */
@@ -381,8 +361,7 @@ setTimeout(counter, 1000);
                 playerMoveList={playerMoveList} 
                 setPlayerMoveList={setPlayerMoveList}
                 setMenu={setMenu}
-                setEnemySelect={setEnemySelect}
-                setMusic={setMusic}/> 
+                setEnemySelect={setEnemySelect}/> 
         </div>
         )
     } 
@@ -411,7 +390,8 @@ setTimeout(counter, 1000);
                 enemyMaxHealth={enemyMaxHealth}
                 enemyLevel={enemyLevel}
                 enemySprite={enemySprite}
-                enemySelect={enemySelect}/>
+                enemySelect={enemySelect}
+                growlCounter={growlCounter} />
             <Options    
                 playerAttack1={playerAttack1}
                 playerAttack2={playerAttack2}

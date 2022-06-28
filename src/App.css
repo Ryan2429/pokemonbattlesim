@@ -5,7 +5,7 @@
 }
 .titleScreen {
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1em;
     font-family: pokemon-solid;
     letter-spacing: 3px;
 }
@@ -280,6 +280,13 @@ body {
     right: 0;
     margin-right: 3%;
 }
+.statusEffect {
+    font-size: 0.5em;
+    font-weight: bold;
+    position: absolute;
+    right: 29%;
+    bottom: 5%;
+}
 
 .gameOver {
     font-family: pokemon-solid;
@@ -328,9 +335,15 @@ body {
 .back {
     bottom: 100.5%;
 }
+.gameOver {
+    font-size: 2.5em;
+    margin-top: 5%;
+}
 .egg {
+    font-size: 1.1em;
     margin-top: -40%;
-    margin-right: 1%;
+    margin-bottom: -4%;
+    margin-right: 5%;
 }
 .eggShadow {
     margin-left: 37%;
@@ -498,6 +511,10 @@ body {
     height: auto;
     width: 40%;
 }
+.statusEffect {
+    font-size: 0.5em;
+    right: 18%;
+}
 .gameOver {
     font-size: 2em;
     letter-spacing: 0.5px;
@@ -610,16 +627,21 @@ progress[value]::-webkit-progress-bar {
             margin-left: -28%;
             transform: scaleX(-1);
         }
+        .gameOver {
+            font-size: 2em;
+        }
         .egg {
-            height: 18em;
-            z-index: -1;
+            height: 15em;
             margin-top: -160%;
-            margin-left: -43%;
+            margin-bottom: -10%;
+            margin-left: -30%;
         }
         .eggShadow {
-            margin-top: 40%;
+            height: 5em;
+            width: 8em;
+            margin-top: 30%;
             margin-left: 8%;
-            box-shadow: 0px 0px 20px 15px black;
+            box-shadow: 0px 0px 10px 15px black;
         }
   }
   /* media query for iphone 12 */

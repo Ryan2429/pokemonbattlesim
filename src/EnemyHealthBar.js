@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './App.css';
 
-const EnemyHealthBar = ({ enemyHealth, enemyLevel }) => {
+const EnemyHealthBar = ({ enemyHealth, enemyLevel, growlCounter }) => {
   
     return (
         <progress className='healthbar' value={enemyHealth} max={enemyLevel * 20}/>
