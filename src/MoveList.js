@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import tackleSound from './Assets/tackle.mp3';
 import growlSound from './Assets/growl.mp3';
 import vineWhipSound from './Assets/vine-whip.mp3';
@@ -44,7 +43,7 @@ const Protect = new Move('PROTECT', 'Normal', 0.0, [], protectSound, 'DefenseUp'
 const WaterPulse = new Move('WATER PULSE', 'Water', 0.9, ['Rock', 'Fire', 'Ground'], waterPulseSound)
 
 /* Shared Moves */
-const None = new Move('---')
+const None = new Move('---', null, null, []);
 const Tackle = new Move('TACKLE', 'Normal', 1.0, [], tackleSound);
 const TakeDown = new Move('TAKE DOWN', 'Normal', 1.2, []);
 const Growl = new Move('GROWL', 'Normal', 0.0, [], growlSound)

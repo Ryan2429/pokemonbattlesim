@@ -7,6 +7,7 @@ const Enemy = ({ enemyHealth, enemySprite, enemySelect, enemyLevel, growlCounter
         return (
     <div>
         <div className='enemyInfo'>
+            <div className='enemyShadow'></div>
             <img className='enemyCharacter' src={ enemySprite } alt='EnemyCharacter'/>
             <div className='enemyContainer'>
              <span className='enemyName'>{enemySelect.name}</span>

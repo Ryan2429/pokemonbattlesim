@@ -160,6 +160,17 @@
     width: 20%;
     transform: scaleX(-1);
 }
+.playerShadow {
+    position: absolute;
+    border-radius: 50%;
+    width: 20em;
+    height: 8em;
+    margin-top: 37%;
+    margin-left: 5%;
+    background-color: black;
+    box-shadow: 1px 1px 20px 25px black;
+    opacity: 0.90;
+}
 
 .enemyCharacter {
     position: absolute;
@@ -171,6 +182,17 @@
     max-width: 25%;
     height: 100%;
     width: 100%;
+}
+
+.enemyShadow {
+    margin-top: -27.5%;
+    margin-left: 70%;
+    border-radius: 50%;
+    width: 20em;
+    height: 8em;
+    background-color: black;
+    box-shadow: 1px 1px 20px 25px black;
+    opacity: 0.90;
 }
 
 body {
@@ -322,6 +344,13 @@ body {
   }
 .options {
     font-size: 1.6rem;
+}
+.enemyCharacter {
+    margin-top: -5%;
+}
+.enemyShadow {
+    margin-top: -33%;
+    margin-left: 68%;
 }
 .playerXPBar {
     /* Reset the default appearance */
@@ -500,6 +529,16 @@ body {
     transform: scaleX(-1);
 }
 
+.playerShadow {
+    height: 3em;
+    width: 8em;
+    position: absolute;
+    margin-left: 3%;
+    margin-top: 80%;
+    box-shadow: 0px 0px 8px 8px black;
+    opacity: 0.9;
+}
+
 .enemyCharacter {
     position: absolute;
     top: 0;
@@ -510,6 +549,15 @@ body {
     max-width: 40%;
     height: auto;
     width: 40%;
+}
+.enemyShadow {
+    height: 3em;
+    width: 8em;
+    position: absolute;
+    margin-left: 55%;
+    margin-top: -120%;
+    box-shadow: 0px 0px 8px 8px black;
+    opacity: 0.9;
 }
 .statusEffect {
     font-size: 0.5em;
@@ -605,6 +653,9 @@ progress[value]::-webkit-progress-bar {
       }
         .playerContainer {
             margin-left: 4%;
+        }
+        .playerShadow {
+            margin-left: 2%;
         }
         .options {
             font-size: 0.68em;

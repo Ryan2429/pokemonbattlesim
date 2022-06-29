@@ -8,6 +8,7 @@ const PlayerChar = ({ playerHealth, playerSprite, playerName, playerLevel, playe
     return (
 <div>
     <div className='playerInfo'>
+        <div className='playerShadow'></div>
         <img className='playerCharacter' src={ playerSprite } alt='PlayerCharacter' />
         <div className='playerContainer'>
         <span className='playerName'>{playerName}</span>

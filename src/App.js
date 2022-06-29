@@ -49,18 +49,19 @@ export default function App() {
     const [enemyHealth, setNewEnemyHealth] = useState(enemyMaxHealth)
     const [count, setCount] = useState(0)
     const [menu, setMenu] = useState('characterSelect')
+    // eslint-disable-next-line
     const [music, setMusic] = useState();
     const [growlCounter, setGrowlCounter] = useState(0);
 
     /* Resets to initial game state on character death */
     const gameOver = () => {
         if (playerHealth <= 0) {
-         setMenu('gameOver'); setNewPlayerHealth(1);
+         setMenu('gameOver'); setNewPlayerHealth(1); setSelectedLevel(PokemonList[0]); setEnemySelect(PokemonList[0][0])
     }
 }
     const newGame = () => {
-        setMenu('characterSelect'); setPlayerName([]); setPlayerLevel(5); setNewPlayerHealth(playerMaxHealth); setPlayerSelect([]); setPlayerSprite(null); 
-        setPlayerMoveList([]); setEvolveLevel(1); setPlayerXP(0); setSelectedLevel(PokemonList[0]); setEnemySelect(selectedLevel[0]);
+        setMenu('characterSelect'); setPlayerName([]); setPlayerLevel(5); setNewPlayerHealth(playerMaxHealth); setPlayerSelect([]); 
+        setPlayerSprite(null); setPlayerMoveList([]); setEvolveLevel(1); setPlayerXP(0);
         setEnemySprite(Caterpie01); setNewEnemyHealth(enemyMaxHealth);
     }
     const attackSound = (sound) => {
@@ -72,26 +73,20 @@ export default function App() {
     /*First if statement makes sure that players can't multiply by NaN if a move hasn't been loaded into a placeholder */
     const enemyAttack = () => {
         if (growlCounter > 0) {
-        let growlModifier = (enemyDamage * 0.7)
+        let growlModifier = (enemyDamage * 0.6)
         setNewPlayerHealth(prevHealth => Math.floor(prevHealth - growlModifier));
         attackSound(enemyAttackSound);
         setGrowlCounter(prevCount => growlCounter - 1);
-        console.log('growl active')
-        console.log(growlCounter);
-        console.log(growlModifier);
         setMenu('default');
     } else {
         setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage));
         attackSound(enemyAttackSound);
-        console.log('growl not active')
-        console.log(growlCounter);
-        console.log(enemyDamage);
         setMenu('default');
     }
 }
 
     const playerAttack1 = () => {
-        if (playerMoveList[0].name != '---') {
+        if (playerMoveList[0].name !== '---') {
         let totalDamage = (playerDamage * playerMoveList[0].damageModifier);
         if (playerMoveList[0].strongAgainst.includes(enemySelect.type)) {
             totalDamage = totalDamage * 2.5;
@@ -115,7 +110,7 @@ export default function App() {
 }
 
     const playerAttack2 = () => {
-        if (playerMoveList[1].name != '---') {
+        if (playerMoveList[1].name !== '---') {
         let totalDamage = (playerDamage * playerMoveList[1].damageModifier);
         if (playerMoveList[1].strongAgainst.includes(enemySelect.type)) {
             totalDamage = totalDamage * 2.5;
@@ -200,39 +195,51 @@ const changeZone = () => {
 }
 
 const moveRefresh = () => {
+    // eslint-disable-next-line
     if (playerLevel === 7 && levelingUp && playerName == 'Bulbasaur') {
         setPlayerMoveList(MoveList[0][1])
     }
+    // eslint-disable-next-line
     if (playerLevel === 7 && levelingUp && playerName == 'Charmander') {
         setPlayerMoveList(MoveList[1][1])
     }
+    // eslint-disable-next-line
     if (playerLevel === 7 && levelingUp && playerName == 'Squirtle') {
         setPlayerMoveList(MoveList[2][1])
     }
+    // eslint-disable-next-line
     if (playerLevel === 8 && levelingUp && playerName == 'Bulbasaur') {
         setPlayerMoveList(MoveList[0][2])
     }
+    // eslint-disable-next-line
     if (playerLevel === 8 && levelingUp && playerName == 'Charmander') {
         setPlayerMoveList(MoveList[1][2])
     }
+    // eslint-disable-next-line
     if (playerLevel === 8 && levelingUp && playerName == 'Squirtle') {
         setPlayerMoveList(MoveList[2][2])
     }
+    // eslint-disable-next-line
     if (playerLevel === 12 && levelingUp && playerName == 'Bulbasaur') {
         setPlayerMoveList(MoveList[0][3])
     }
+    // eslint-disable-next-line
     if (playerLevel === 12 && levelingUp && playerName == 'Charmander') {
         setPlayerMoveList(MoveList[1][3])
     }
+    // eslint-disable-next-line
     if (playerLevel === 12 && levelingUp && playerName == 'Squirtle') {
         setPlayerMoveList(MoveList[2][3])
     }
+    // eslint-disable-next-line
     if (playerLevel === 20 && levelingUp && playerName == 'Ivysaur') {
         setPlayerMoveList(MoveList[0][4])
     }
+    // eslint-disable-next-line
     if (playerLevel === 20 && levelingUp && playerName == 'Charmeleon') {
         setPlayerMoveList(MoveList[1][4])
     }
+    // eslint-disable-next-line
     if (playerLevel === 20 && levelingUp && playerName == 'Wartortle') {
         setPlayerMoveList(MoveList[2][4])
     }
@@ -258,31 +265,37 @@ const moveRefresh = () => {
 
 /* Function evolves pokemon at appropriate level, changes sprites & name, and renders a 1% damage boost per level */
     const evolve = () => {
+        // eslint-disable-next-line
         if (playerLevel === 15 && playerName == 'Charmander') {
            playerSelect[0] = Charmeleon01;
            playerSelect[1] = Charmeleon02;
            setPlayerName('Charmeleon');
            setEvolveLevel(prevEvolveLevel => evolveLevel + 0.1);
+           // eslint-disable-next-line
         } if (playerLevel === 35 && playerName == 'Charmeleon') {
             playerSelect[0] = Charizard01;
             playerSelect[1] = Charizard02;
             setPlayerName('Charizard');
             setEvolveLevel(prevEvolveLevel => evolveLevel + 0.1);
+            // eslint-disable-next-line
         } if (playerLevel === 15 && playerName == 'Bulbasaur') {
             playerSelect[0] = Ivysaur01;
             playerSelect[1] = Ivysaur02;
             setPlayerName('Ivysaur');
             setEvolveLevel(prevEvolveLevel => evolveLevel + 0.1);
+            // eslint-disable-next-line
         } if (playerLevel === 31 && playerName == 'Ivysaur') {
              playerSelect[0] = Venusaur01;
              playerSelect[1] = Venusaur02;
              setPlayerName('Venusaur');
              setEvolveLevel(prevEvolveLevel => evolveLevel + 0.1);
+             // eslint-disable-next-line
         } if (playerLevel === 15 && playerName == 'Squirtle') {
             playerSelect[0] = Wartortle01;
             playerSelect[1] = Wartortle02;
             setPlayerName('Wartortle');
             setEvolveLevel(prevEvolveLevel => evolveLevel + 0.1);
+            // eslint-disable-next-line
         } if (playerLevel === 35 && playerName == 'Wartortle') {
              playerSelect[0] = Blastoise01;
              playerSelect[1] = Blastoise02;
@@ -398,6 +411,7 @@ setTimeout(counter, 1000);
                 playerAttack3={playerAttack3}
                 playerAttack4={playerAttack4}
                 playerMoveList={playerMoveList}
+                enemySelect={enemySelect}
                 fight={fight} 
                 goBack={goBack} 
                 menu={menu}/>
