@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/pokemonbattlesim/static/css/main.b7c55b02.css",
-    "main.js": "/pokemonbattlesim/static/js/main.f3be671f.js",
+    "main.css": "/pokemonbattlesim/static/css/main.8d82eda6.css",
+    "main.js": "/pokemonbattlesim/static/js/main.f51e0f9d.js",
+    "static/media/battle-theme.mp3": "/pokemonbattlesim/static/media/battle-theme.02274fbcd8311128ebc5.mp3",
     "static/media/opening-theme.mp3": "/pokemonbattlesim/static/media/opening-theme.c956571ebf1551639c44.mp3",
-    "static/media/battle-theme.mp3": "/pokemonbattlesim/static/media/battle-theme.a6f63115a569e428adb0.mp3",
     "static/media/flamethrower.mp3": "/pokemonbattlesim/static/media/flamethrower.0196c0b30bd5c3d40647.mp3",
     "static/media/absorb.mp3": "/pokemonbattlesim/static/media/absorb.f4f2b893105f7450e07a.mp3",
     "static/media/leech-seed.mp3": "/pokemonbattlesim/static/media/leech-seed.8c1b73b623adf30c6ac6.mp3",
@@ -25,11 +25,11 @@
     "static/media/EggRight.png": "/pokemonbattlesim/static/media/EggRight.64a7867421c9dc8ee42a.png",
     "static/media/pokemon-solid.ttf": "/pokemonbattlesim/static/media/pokemon-solid.5d60be1f7ff5fcc21fc1.ttf",
     "index.html": "/pokemonbattlesim/index.html",
-    "main.b7c55b02.css.map": "/pokemonbattlesim/static/css/main.b7c55b02.css.map",
-    "main.f3be671f.js.map": "/pokemonbattlesim/static/js/main.f3be671f.js.map"
+    "main.8d82eda6.css.map": "/pokemonbattlesim/static/css/main.8d82eda6.css.map",
+    "main.f51e0f9d.js.map": "/pokemonbattlesim/static/js/main.f51e0f9d.js.map"
   },
   "entrypoints": [
-    "static/css/main.b7c55b02.css",
-    "static/js/main.f3be671f.js"
+    "static/css/main.8d82eda6.css",
+    "static/js/main.f51e0f9d.js"
   ]
 }
