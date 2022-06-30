@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/pokemonbattlesim/static/css/main.f6e4bad3.css",
+    "main.css": "/pokemonbattlesim/static/css/main.220c7564.css",
     "main.js": "/pokemonbattlesim/static/js/main.51523bca.js",
     "static/media/battle-theme.mp3": "/pokemonbattlesim/static/media/battle-theme.02274fbcd8311128ebc5.mp3",
     "static/media/opening-theme.mp3": "/pokemonbattlesim/static/media/opening-theme.c956571ebf1551639c44.mp3",
@@ -25,11 +25,11 @@
     "static/media/EggRight.png": "/pokemonbattlesim/static/media/EggRight.64a7867421c9dc8ee42a.png",
     "static/media/pokemon-solid.ttf": "/pokemonbattlesim/static/media/pokemon-solid.5d60be1f7ff5fcc21fc1.ttf",
     "index.html": "/pokemonbattlesim/index.html",
-    "main.f6e4bad3.css.map": "/pokemonbattlesim/static/css/main.f6e4bad3.css.map",
+    "main.220c7564.css.map": "/pokemonbattlesim/static/css/main.220c7564.css.map",
     "main.51523bca.js.map": "/pokemonbattlesim/static/js/main.51523bca.js.map"
   },
   "entrypoints": [
-    "static/css/main.f6e4bad3.css",
+    "static/css/main.220c7564.css",
     "static/js/main.51523bca.js"
   ]
 }
