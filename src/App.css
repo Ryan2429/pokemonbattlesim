@@ -258,7 +258,7 @@ body {
   }
 
   .health {
-      font-size: .8em;
+      font-size: .7em;
       font-weight: bold;
       position: absolute;
       right: 0;
@@ -560,8 +560,8 @@ body {
     opacity: 0.9;
 }
 .statusEffect {
-    font-size: 0.5em;
-    right: 18%;
+    font-size: 0.45em;
+    right: 23%;
 }
 .gameOver {
     font-size: 2em;

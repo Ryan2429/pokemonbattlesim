@@ -45,10 +45,10 @@ export default function App() {
     const [enemyLevel, setEnemyLevel] = useState(enemySelect.level);
     const enemyDamage = enemyLevel * 6 * enemySelect.damageModifier;
     const [enemySprite, setEnemySprite] = useState(Caterpie01);
-    const enemyMaxHealth = enemyLevel * 20;
-    const [enemyHealth, setNewEnemyHealth] = useState(enemyMaxHealth)
+    const [enemyMaxHealth, setEnemyMaxHealth] = useState(enemyLevel * 20);
+    const [enemyHealth, setEnemyHealth] = useState(enemyMaxHealth);
     const [count, setCount] = useState(0)
-    const [menu, setMenu] = useState('characterSelect')
+    const [menu, setMenu] = useState('titleScreen')
     // eslint-disable-next-line
     const [music, setMusic] = useState();
     const [growlCounter, setGrowlCounter] = useState(0);
@@ -56,13 +56,14 @@ export default function App() {
     /* Resets to initial game state on character death */
     const gameOver = () => {
         if (playerHealth <= 0) {
-         setMenu('gameOver'); setNewPlayerHealth(1); setSelectedLevel(PokemonList[0]); setEnemySelect(PokemonList[0][0])
+         setMenu('gameOver'); setNewPlayerHealth(1); setSelectedLevel(PokemonList[0]); setEnemySelect(PokemonList[0][0]);
+          setEnemyLevel(PokemonList[0][0].level); setEnemyMaxHealth(60); setEnemyHealth(60); setEnemySprite(Caterpie01);
     }
 }
     const newGame = () => {
         setMenu('characterSelect'); setPlayerName([]); setPlayerLevel(5); setNewPlayerHealth(playerMaxHealth); setPlayerSelect([]); 
-        setPlayerSprite(null); setPlayerMoveList([]); setEvolveLevel(1); setPlayerXP(0);
-        setEnemySprite(Caterpie01); setNewEnemyHealth(enemyMaxHealth);
+        setPlayerSprite(null); setPlayerMoveList([]); setEvolveLevel(1); setPlayerXP(0); setGrowlCounter(0);  
+        
     }
     const attackSound = (sound) => {
         let beat = new Audio(sound);
@@ -92,7 +93,7 @@ export default function App() {
             totalDamage = totalDamage * 2.5;
         }
         if (enemyHealth > 0) {
-        setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage));
+        setEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage));
         attackSound(playerMoveList[0].attackSound);
         } 
         if (enemyHealth - totalDamage > 0) {
@@ -100,7 +101,7 @@ export default function App() {
             setTimeout(enemyAttack, 2500);
         } else if (enemyHealth - totalDamage <= 0) {
             setEnemySelect(prevEnemy => selectedLevel[Math.floor(Math.random()*selectedLevel.length)]);
-            setNewEnemyHealth(prevhealth => 0);
+            setEnemyHealth(prevhealth => 0);
             rewardXP();
             levelUp();
             setMenu('enemy');
@@ -116,7 +117,7 @@ export default function App() {
             totalDamage = totalDamage * 2.5;
         }
         if (enemyHealth > 0) {
-        setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage));
+        setEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage));
         attackSound(playerMoveList[1].attackSound);
         } 
         if (enemyHealth - totalDamage > 0) {
@@ -124,7 +125,7 @@ export default function App() {
             setTimeout(enemyAttack, 2500);
         } else if (0 >= enemyHealth - totalDamage) {
             setEnemySelect(prevEnemy => selectedLevel[Math.floor(Math.random()*selectedLevel.length)]);
-            setNewEnemyHealth(prevhealth => 0);
+            setEnemyHealth(prevhealth => 0);
             rewardXP();
             levelUp();
             setMenu('enemy');
@@ -140,7 +141,7 @@ export default function App() {
             totalDamage = totalDamage * 2.5;
         }
         if (enemyHealth > 0) {
-        setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage));
+        setEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage));
         attackSound(playerMoveList[2].attackSound);
         } 
         if (enemyHealth - totalDamage > 0) {
@@ -148,7 +149,7 @@ export default function App() {
             setTimeout(enemyAttack, 2500);
         } else if (enemyHealth - totalDamage <= 0) {
             setEnemySelect(prevEnemy => selectedLevel[Math.floor(Math.random()*selectedLevel.length)]);
-            setNewEnemyHealth(prevhealth => 0);
+            setEnemyHealth(prevhealth => 0);
             rewardXP();
             levelUp();
             setMenu('enemy');
@@ -161,13 +162,12 @@ export default function App() {
         setGrowlCounter(2);
         let totalDamage = (playerDamage * playerMoveList[3].damageModifier);
         if (enemyHealth > 0) {
-        setNewEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage));
+        setEnemyHealth(prevHealth => Math.ceil(prevHealth - totalDamage));
         attackSound(playerMoveList[3].attackSound);
         } 
         if (enemyHealth - totalDamage > 0) {
             setMenu('enemy');
             setTimeout(enemyAttack, 2500);
-            console.log(enemyDamage);
         } 
         setTimeout(() => setMenu('default'), 2000);
     }
@@ -316,20 +316,28 @@ const moveRefresh = () => {
         setMenu('default');
     }
     
-/*counter runs to time animations without getting stuck in recursion loop, also now handles updating of monster level and HP on new spawn
-    as well as changing the combat zone*/
-   
-    const healthCap = () => {
+
+    const enemyHealthCap = () => {
+        if (enemyHealth > (enemyLevel * 20)) {
+            setEnemyHealth(enemyMaxHealth);
+        }
+    }
+
+
 /*Function caps player health after a level up to make sure it doesn't exceed maximum */
+    const healthCap = () => {
         if (playerHealth > playerMaxHealth) {
             setNewPlayerHealth(playerLevel * 20);
         }
     }
 
+
+    /*counter runs to time animations without getting stuck in recursion loop, also now handles updating of monster level and HP on new spawn
+    as well as changing the combat zone*/
    const counter = () => { 
     if (count >= 0 && enemyHealth === 0) {
         setEnemyLevel(prevLevel => enemySelect.level);
-        setNewEnemyHealth(prevHealth => enemySelect.health);
+        setEnemyHealth(prevHealth => enemySelect.health);
     }
     if (count === 3) {
         setPlayerSprite(prevSprite => playerSelect[0])
@@ -346,6 +354,7 @@ const moveRefresh = () => {
     }
     changeZone();
     healthCap();
+    enemyHealthCap();
     gameOver();
 }  
 setTimeout(counter, 1000);

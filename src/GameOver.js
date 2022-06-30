@@ -9,10 +9,8 @@ const GameOver = ( { newGame, count }) => {
     const animateEgg = () => {
     if (count % 2 === 0) {
         setEggImage(EggLeft);
-        console.log(eggImage);
     } else {
         setEggImage(EggRight);
-        console.log(eggImage);
     }
 }
     
