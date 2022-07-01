@@ -33,7 +33,7 @@ const Absorb = new Move('ABSORB', 'Grass', 0.8, ['Water', 'Rock', 'Ground'], abs
 /* Charmander Moves */
 const Scratch = new Move('SCRATCH', 'Normal', 1.1, [], scratchSound);
 const Ember = new Move('EMBER', 'Fire', 0.3, ['Bug', 'Grass', 'Ice'], emberSound, 'BURN', 'BURN - BURNING FOR');
-const Slash = new Move('SLASH', 'Normal', 1.3, [], slashSound)
+const Slash = new Move('SLASH', 'Normal', 1.2, [], slashSound)
 const Flamethrower = new Move('FLAMETHROWER', 'Fire', 1.0, ['Bug', 'Grass', 'Ice'], flamethrowerSound);
 const FireFang = new Move('FIRE FANG', 'Fire', 0.4, ['Bug', 'Grass', 'Ice'], fireFangSound, 'BURN', 'BURN - BURNING FOR');
 
