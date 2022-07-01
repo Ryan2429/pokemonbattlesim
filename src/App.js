@@ -126,7 +126,7 @@ export default function App() {
     /*First if statement makes sure that players can't multiply by NaN if a move hasn't been loaded into a placeholder */
     const playerAttack2 = () => {
         if (playerMoveList[1].name !== '---') {
-        let totalDamage = (playerDamage * playerMoveList[0].damageModifier);
+        let totalDamage = (playerDamage * playerMoveList[1].damageModifier);
         if (playerMoveList[1].strongAgainst.includes(enemySelect.type)) {
             totalDamage = totalDamage * 2.5;
         }
@@ -152,7 +152,7 @@ export default function App() {
     const playerAttack3 = () => {
         if (effect === false) {
         if (playerMoveList[2].name !== '---') {
-        let totalDamage = (playerDamage * playerMoveList[0].damageModifier);
+        let totalDamage = (playerDamage * playerMoveList[2].damageModifier);
         if (playerMoveList[2].strongAgainst.includes(enemySelect.type)) {
             totalDamage = totalDamage * 2.5;
         }
