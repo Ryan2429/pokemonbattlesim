@@ -28,7 +28,7 @@ const Options = ({ playerAttack1, playerAttack2, playerAttack3, playerAttack4, m
     }
 
     /* Handles combat menu state */
-
+    /* Attacks go in order:  NORMAL, ELEMENTAL DAMAGE, GROWL, EFFECT */
     if (menu === 'fight') {
         return(
     <div className='options'>

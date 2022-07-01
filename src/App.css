@@ -303,7 +303,7 @@ body {
     margin-right: 3%;
 }
 .statusEffect {
-    font-size: 0.5em;
+    font-size: 0.45em;
     font-weight: bold;
     position: absolute;
     right: 29%;
@@ -560,7 +560,7 @@ body {
     opacity: 0.9;
 }
 .statusEffect {
-    font-size: 0.40em;
+    font-size: 0.4em;
     right: 23%;
 }
 .gameOver {
