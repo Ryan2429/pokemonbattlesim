@@ -54,6 +54,7 @@ export default function App() {
     const [effect, setEffect] = useState(false);
     const [effectText, setEffectText] = useState(false);
     const [effectCounter, setEffectCounter] = useState(0);
+    const [protectCounter, setProtectCounter] = useState(0);
 
     /* Resets to initial game state on character death */
     const gameOver = () => {
@@ -64,7 +65,7 @@ export default function App() {
 }
     const newGame = () => {
         setMenu('characterSelect'); setPlayerName([]); setPlayerLevel(5); setNewPlayerHealth(playerMaxHealth); setPlayerSelect([]); 
-        setPlayerSprite(null); setPlayerMoveList([]); setEvolveLevel(1); setPlayerXP(0); setEffect(false); setEffectCounter(0);  
+        setPlayerSprite(null); setPlayerMoveList([]); setEvolveLevel(1); setPlayerXP(0); setEffect(false); setEffectCounter(0); setProtectCounter(0); 
         
     }
     const attackSound = (sound) => {
@@ -75,8 +76,9 @@ export default function App() {
     /* Functions that govern the 4 Attacks the player can have at any given time & handles damage calculation */
 
     /* Establishes debuff from GROWL and burn damage from BURN */
-    const growlModified = (enemyDamage * 0.6);
-    const burnDamage = effect == 'BURN' ? (playerDamage * 0.4) : (playerDamage * 0);
+    const growlModified = effect == 'GROWL' ? (enemyDamage * 0.6) : (enemyDamage * 1);
+    const burnDamage = (effect == 'BURN' ? (playerDamage * 0.4) : (playerDamage * 0));
+     
 
     const enemyAttack = () => {
     if (effectCounter > 0 && effect == 'GROWL') {
@@ -91,11 +93,14 @@ export default function App() {
         setEffectCounter(prevCount => effectCounter - 1);
         setMenu('default');
     } else {
+        /* In this line, defenseUp is used as the variable for calculation whether player character is Squirtle or not, would
+        normally replace with enemyDamage variable instead */
         setNewPlayerHealth(prevHealth => Math.floor(prevHealth - enemyDamage));
         attackSound(enemyAttackSound);
         setMenu('default');
+    } 
     }
-}
+
     /*First if statement makes sure that players can't multiply by NaN if a move hasn't been loaded into a placeholder */
     const playerAttack1 = () => {
         let totalDamage = (playerDamage * playerMoveList[0].damageModifier);
@@ -118,9 +123,6 @@ export default function App() {
             setMenu('enemy');
             setTimeout(() => setMenu('default'), 2000);
         }
-        console.log(totalDamage);
-        console.log(playerDamage);
-        console.log(burnDamage);
     }
 
     /*First if statement makes sure that players can't multiply by NaN if a move hasn't been loaded into a placeholder */
@@ -150,9 +152,11 @@ export default function App() {
 }
     /*Second if statement makes sure that players can't multiply by NaN if a move hasn't been loaded into a placeholder */
     const playerAttack3 = () => {
+        let totalDamage = (playerDamage * playerMoveList[2].damageModifier);
+        let selfHeal = (playerMoveList[2].effect == 'HEAL' ? (totalDamage * 0.6) : (totalDamage * 0));
         if (effect === false) {
         if (playerMoveList[2].name !== '---') {
-        let totalDamage = (playerDamage * playerMoveList[2].damageModifier);
+        
         if (playerMoveList[2].strongAgainst.includes(enemySelect.type)) {
             totalDamage = totalDamage * 2.5;
         }
@@ -176,6 +180,9 @@ export default function App() {
         setEffect('BURN');
         setEffectText(playerMoveList[2].effectText);
         setEffectCounter(3);
+    }
+    if (playerMoveList[2].effect == 'HEAL') {
+        setNewPlayerHealth(prevHealth => (Math.ceil(prevHealth + selfHeal)));
     }
 }
     }
@@ -210,7 +217,7 @@ const changeZone = () => {
     if (playerLevel === 10 && levelingUp) {
         setSelectedLevel(prevLevel => PokemonList[2]);
     }
-    if (playerLevel === 14 && levelingUp) {
+    if (playerLevel === 12 && levelingUp) {
         setSelectedLevel(prevLevel => PokemonList[3]);
     }
     if (playerLevel === 16 && levelingUp) {
@@ -235,39 +242,39 @@ const moveRefresh = () => {
         setPlayerMoveList(MoveList[2][1])
     }
     // eslint-disable-next-line
-    if (playerLevel === 8 && levelingUp && playerName == 'Bulbasaur') {
+    if (playerLevel === 11 && levelingUp && playerName == 'Bulbasaur') {
         setPlayerMoveList(MoveList[0][2])
     }
     // eslint-disable-next-line
-    if (playerLevel === 8 && levelingUp && playerName == 'Charmander') {
+    if (playerLevel === 11 && levelingUp && playerName == 'Charmander') {
         setPlayerMoveList(MoveList[1][2])
     }
     // eslint-disable-next-line
-    if (playerLevel === 8 && levelingUp && playerName == 'Squirtle') {
+    if (playerLevel === 9 && levelingUp && playerName == 'Squirtle') {
         setPlayerMoveList(MoveList[2][2])
     }
     // eslint-disable-next-line
-    if (playerLevel === 12 && levelingUp && playerName == 'Bulbasaur') {
+    if (playerLevel === 15 && levelingUp && playerName == 'Bulbasaur') {
         setPlayerMoveList(MoveList[0][3])
     }
     // eslint-disable-next-line
-    if (playerLevel === 12 && levelingUp && playerName == 'Charmander') {
+    if (playerLevel === 15 && levelingUp && playerName == 'Charmander') {
         setPlayerMoveList(MoveList[1][3])
     }
     // eslint-disable-next-line
-    if (playerLevel === 12 && levelingUp && playerName == 'Squirtle') {
+    if (playerLevel === 15 && levelingUp && playerName == 'Squirtle') {
         setPlayerMoveList(MoveList[2][3])
     }
     // eslint-disable-next-line
-    if (playerLevel === 20 && levelingUp && playerName == 'Ivysaur') {
+    if (playerLevel === 19 && levelingUp && playerName == 'Ivysaur') {
         setPlayerMoveList(MoveList[0][4])
     }
     // eslint-disable-next-line
-    if (playerLevel === 20 && levelingUp && playerName == 'Charmeleon') {
+    if (playerLevel === 19 && levelingUp && playerName == 'Charmeleon') {
         setPlayerMoveList(MoveList[1][4])
     }
     // eslint-disable-next-line
-    if (playerLevel === 20 && levelingUp && playerName == 'Wartortle') {
+    if (playerLevel === 19 && levelingUp && playerName == 'Wartortle') {
         setPlayerMoveList(MoveList[2][4])
     }
 }
@@ -433,7 +440,8 @@ setTimeout(counter, 1000);
                 playerLevel={playerLevel}
                 playerSprite={playerSprite}
                 playerXP={playerXP}
-                XPToLevelUp={XPToLevelUp}/>
+                XPToLevelUp={XPToLevelUp}
+                protectCounter={protectCounter}/>
             <Enemy 
                 enemyHealth={enemyHealth} 
                 enemyMaxHealth={enemyMaxHealth}

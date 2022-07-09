@@ -26,9 +26,9 @@ function Move(name, type, damageModifier, strongAgainst, attackSound, effect, ef
 
 /*Bulbasaur Moves */
 const VineWhip = new Move('VINE WHIP', 'Grass', 0.7, ['Water', 'Rock', 'Ground'], vineWhipSound);
-const LeechSeed = new Move('LEECH SEED', 'Grass', 0.5, ['Water', 'Rock', 'Ground'], leechSeedSound, 'HEAL');
+const LeechSeed = new Move('LEECH SEED', 'Grass', 0.4, ['Water', 'Rock', 'Ground'], leechSeedSound, 'HEAL');
 const RazorLeaf = new Move('RAZOR LEAF', 'Grass', 0.8, ['Water', 'Rock', 'Ground'], razorLeafSound, 'CRITICAL');
-const Absorb = new Move('ABSORB', 'Grass', 0.8, ['Water', 'Rock', 'Ground'], absorbSound, 'HEAL')
+const Absorb = new Move('ABSORB', 'Grass', 0.6, ['Water', 'Rock', 'Ground'], absorbSound, 'HEAL')
 
 /* Charmander Moves */
 const Scratch = new Move('SCRATCH', 'Normal', 1.1, [], scratchSound);
@@ -40,7 +40,7 @@ const FireFang = new Move('FIRE FANG', 'Fire', 0.4, ['Bug', 'Grass', 'Ice'], fir
 /* Squirtle Moves */
 const Bubble = new Move('BUBBLE', 'Water', 0.8, ['Rock', 'Fire', 'Ground'], bubbleSound);
 const RapidSpin = new Move('RAPID SPIN', 'Normal', 1.1, [], rapidSpinSound);
-const Protect = new Move('PROTECT', 'Normal', 0.0, [], protectSound, 'DEFENSEUP');
+const Protect = new Move('PROTECT', 'Normal', 0.0, [], protectSound, 'DEFENSE-UP');
 const WaterPulse = new Move('WATER PULSE', 'Water', 0.9, ['Rock', 'Fire', 'Ground'], waterPulseSound)
 
 /* Shared Moves */
